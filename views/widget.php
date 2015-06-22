@@ -1,6 +1,6 @@
 <?php
 /*
- * HackerRank Profile Widget for WordPress
+ * GitHub Profile Widget for WordPress
  *
  *     Copyright (C) 2015 Henrique Dias <hacdias@gmail.com>
  *     Copyright (C) 2015 Luís Soares <lsoares@gmail.com>
@@ -33,7 +33,7 @@
                 <div class="refactors-widget-header-text">
                     <a class="refactors-widget-header-link" target="_blank" href="https://someURL">Username</a>
                     <span class="separator"> |</span>
-                    <span>Service</span>
+                    <span>GitHub</span>
                 </div>
 			</header>
 		<?php endif; ?>

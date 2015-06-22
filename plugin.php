@@ -91,4 +91,4 @@ class GitHub_Profile extends WP_Widget {
 
 }
 
-add_action( 'widgets_init', create_function( '', 'return register_widget("Widget_Name");' ) );
+add_action( 'widgets_init', create_function( '', 'return register_widget("GitHub_Profile");' ) );

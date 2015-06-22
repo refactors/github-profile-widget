@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b376615f-0413-4f75-8eb9-93c0ee16830c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/css/refactors-widget.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/css/styles.css" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/js/.gitkeep" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/views/form.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugin.php" afterPath="$PROJECT_DIR$/plugin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.txt" afterPath="$PROJECT_DIR$/readme.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="github-profile-widget.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +34,8 @@
       <file leaf-file-name="plugin.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plugin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9982669" vertical-offset="54" max-vertical-offset="1782">
-              <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="93" />
+            <state vertical-scroll-proportion="0.3743501" vertical-offset="0" max-vertical-offset="1782">
+              <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
               <folding>
                 <element signature="e#7#300#0#PHP" expanded="true" />
               </folding>
@@ -54,8 +51,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/plugin.php" />
         <option value="$PROJECT_DIR$/readme.txt" />
+        <option value="$PROJECT_DIR$/plugin.php" />
       </list>
     </option>
   </component>
@@ -217,8 +214,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plugin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9982669" vertical-offset="54" max-vertical-offset="1782">
-          <caret line="35" column="38" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="93" />
+        <state vertical-scroll-proportion="0.3743501" vertical-offset="0" max-vertical-offset="1782">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
           <folding>
             <element signature="e#7#300#0#PHP" expanded="true" />
           </folding>

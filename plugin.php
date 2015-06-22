@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: [Plugin Name]
+ * Plugin Name: GitHub Profile Widget
  * Description: This is a plugin that shows your HackerRank profile with a simple widget.
  * Version: 1.0.0
  * Author: Henrique Dias and Luís Soares (Refactors)
@@ -17,31 +17,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once( 'lib/htmlcompressor.php' );
 
-class Widget_Name extends WP_Widget {
+class GitHub_Profile extends WP_Widget {
 
-	protected $widget_slug = 'widget-name';
+	protected $widget_slug = 'github-profile';
 	protected $options = array(
 		"title",
 		"username"
 	);
 	protected $config;
 	protected $optionsShow = array(
-		'bio',
-		'member since',
-		'picture',
-		'badges',
-		'watchlist',
-		'lists',
-		'ratings',
-		'reviews',
-		'boards'
+
 	);
 
 	public function __construct() {
 		parent::__construct(
-			$this->get_widget_slug(), __( 'Widget Name', $this->get_widget_slug() ), array(
+			$this->get_widget_slug(), __( 'GitHub Profile', $this->get_widget_slug() ), array(
 				'classname'   => $this->get_widget_slug() . '-class',
-				'description' => __( 'Widget Description', $this->get_widget_slug() )
+				'description' => __( 'A widget to show a small version of your GitHub profile', $this->get_widget_slug() )
 			)
 		);
 

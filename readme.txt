@@ -7,7 +7,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A Small description.
+A widget to show a small version of your GitHub profile.
 
 == Description ==
 

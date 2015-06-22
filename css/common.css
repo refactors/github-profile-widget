@@ -1,0 +1,97 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
+
+/* WIDGET GENERAL */
+
+.refactors-widget {
+    border-radius: 0.313em;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    border-color: rgba(57, 66, 78, 0.117647);
+    border-style: solid;
+    border-width: 0.313em;
+    color: rgb(57, 66, 78);
+    background: #f5f5f5;
+    font-size: 0.85em;
+}
+
+.refactors-widget,
+.refactors-widget p,
+.refactors-widget a,
+.refactors-widget h1,
+.refactors-widget h2 {
+    font-family: "Roboto", sans-serif !important;
+}
+
+.refactors-widget h2 {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 1em 0 .1em;
+    padding: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05)
+}
+
+.refactors-widget-content {
+    padding: .323em;
+}
+
+.refactors-shadowed {
+    border-radius: 0.313em;
+    padding: 0.313em;
+    background: rgba(0, 0, 0, 0.03)
+}
+
+/* HEADER */
+
+.refactors-widget-header {
+    font-weight: bold;
+    margin-bottom: 8px;
+    padding: 0 0 5px 0;
+    background-color: rgba(57, 66, 78, 0.12);
+}
+
+.refactors-widget-company-logo {
+    display: inline-block;
+    vertical-align: middle;
+    height: 1.5em;
+    margin-right: .250em;
+    right: 0;
+}
+
+.refactors-widget-company-logo,
+.refactors-widget-header-text {
+    vertical-align: middle;
+}
+
+.refactors-widget-header-text,
+.refactors-widget-header-link {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.5em;
+    font-weight: bold;
+    color: rgb(57, 66, 78) !important;
+}
+
+.refactors-widget-header .separator {
+    margin: 0 .250em;
+}
+
+/* PROFILE */
+
+.refactors-widget-avatar {
+    border-radius: 4px;
+}
+
+.refactors-widget-pi-left {
+    display: inline-block;
+    width: 28%;
+    margin-right: 2.5%;
+}
+
+.refactors-widget-pi-right {
+    display: inline-block;
+    vertical-align: top;
+    padding: 5px;
+    box-sizing: border-box;
+    width: 67.5%;
+}
+

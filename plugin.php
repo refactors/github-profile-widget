@@ -1,71 +1,72 @@
 <?php
 
 /**
- * Plugin Name: GitHub Profile Widget
- * Description: This is a plugin that shows your GitHub profile with a simple widget.
+ * Plugin Name: [Plugin Name]
+ * Description: This is a plugin that shows your HackerRank profile with a simple widget.
  * Version: 1.0.0
  * Author: Henrique Dias and Luís Soares (Refactors)
  * Author URI: https://github.com/refactors
  * Network: true
  * License: GPL2 or later
- *
- * GitHub Profile Widget for WordPress
- *
- *     Copyright (C) 2015 Henrique Dias     <hacdias@gmail.com>
- *     Copyright (C) 2015 Luís Soares       <lsoares@gmail.com>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+// prevent direct file access
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
-class GitHub_Profile_Widget extends WP_Widget {
+require_once( 'lib/htmlcompressor.php' );
 
-	protected $widget_slug = 'github-profile-widget';
+class Widget_Name extends WP_Widget {
 
-	/**
-	 * Options
-	 *
-	 * The names of the options the plugin can handle.
-	 */
+	protected $widget_slug = 'widget-name';
 	protected $options = array(
-		"opt2"
+		"title",
+		"username"
+	);
+	protected $config;
+	protected $optionsShow = array(
+		'bio',
+		'member since',
+		'picture',
+		'badges',
+		'watchlist',
+		'lists',
+		'ratings',
+		'reviews',
+		'boards'
 	);
 
 	public function __construct() {
 		parent::__construct(
-			'GitHub Profile Widget', 'GitHub Profile Widget',
-			array( 'description' => 'A widget to show a small version of your HackerRank profile.' )
+			$this->get_widget_slug(), __( 'Widget Name', $this->get_widget_slug() ), array(
+				'classname'   => $this->get_widget_slug() . '-class',
+				'description' => __( 'Widget Description', $this->get_widget_slug() )
+			)
 		);
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_widget_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_widget_scripts' ) );
 	}
 
+	public function get_widget_slug() {
+		return $this->widget_slug;
+	}
+
 	public function form( $config ) {
 		$config = ! empty( $config ) ? unserialize( $config ) : array();
-		foreach ( $this->options as $option ) {
-			${$option} = isset( $config[ $option ] ) ? $config[ $option ] : null;
+
+		foreach ( $config as $key => $value ) { // recover options
+			${$key} = esc_attr( $value );
 		}
+
 		ob_start( "refactors_HTMLCompressor" );
-		require 'views/form.php';
+		require 'views/options.php';
 		ob_end_flush();
 	}
 
-	public function update( $newInstance, $oldInstance ) {
-		$instance = serialize( $newInstance );
-
-		return $instance;
+	public function update( $new_instance, $old_instance ) {
+		return serialize( $new_instance );
 	}
 
 	public function widget( $args, $config ) {
@@ -73,22 +74,29 @@ class GitHub_Profile_Widget extends WP_Widget {
 		$config = ! empty( $config ) ? unserialize( $config ) : array();
 
 		ob_start( "refactors_HTMLCompressor" );
-		require 'views/widget.php';
+
+		if ( ! isset( $config['username'] ) ) {
+			echo 'You need to first configure the plugin :)';
+		} else {
+			require 'views/widget.php';
+		}
+
 		ob_end_flush();
 	}
 
-	public function register_widget_styles() {
-    wp_enqueue_style( $this->get_widget_slug() . '-widget-parent-styles', plugins_url( 'css/refactors-widget.css', __FILE__ ) );
-		wp_enqueue_style( $this->get_widget_slug() . '-widget-styles', plugins_url( 'css/styles.css', __FILE__ ) );
+	public function isChecked( $conf, $name ) {
+		return isset( $conf[ $name ] ) && $conf[ $name ] == 'on';
 	}
 
-	public function get_widget_slug() {
-		return $this->widget_slug;
+	public function register_widget_styles() {
+		wp_enqueue_style( $this->get_widget_slug() . '-common-styles', plugins_url( 'css/common.css', __FILE__ ) );
+		wp_enqueue_style( $this->get_widget_slug() . '-widget-styles', plugins_url( 'css/widget.css', __FILE__ ) );
 	}
 
 	public function register_widget_scripts() {
-		// add styles
+		wp_enqueue_script( $this->get_widget_slug() . '-script', plugins_url( 'js/widget.js', __FILE__ ), array( 'jquery' ), null, true );
 	}
+
 }
 
-add_action( 'widgets_init', create_function( '', 'return register_widget("GitHub_Profile_Widget");' ) );
+add_action( 'widgets_init', create_function( '', 'return register_widget("Widget_Name");' ) );

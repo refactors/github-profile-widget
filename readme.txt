@@ -1,4 +1,4 @@
-=== GitHub Profile Widget ===
+=== [Widget Name] ===
 Contributors: hacdias, lsoares13
 Tags:
 Requires at least: 3.0.1

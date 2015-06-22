@@ -1,6 +1,6 @@
 <?php
 /*
- * GitHub Profile Widget for WordPress
+ * HackerRank Profile Widget for WordPress
  *
  *     Copyright (C) 2015 Henrique Dias <hacdias@gmail.com>
  *     Copyright (C) 2015 Luís Soares <lsoares@gmail.com>
@@ -29,12 +29,14 @@
 
 		<?php if ( ! isset( $config["hideBuiltInHeader"] ) || ! $config["hideBuiltInHeader"] == "on" ) : ?>
 			<header class="refactors-widget-header">
-				<img class="refactors-widget-company-logo" src="https://d3keuzeb2crhkn.cloudfront.net/hackerrank/assets/brand/h_mark_sm.png"/>
-                <div class="refactors-widget-header-text">
-                    <a class="refactors-widget-header-link" target="_blank" href="https://someURL">Username</a>
-                    <span class="separator"> |</span>
-                    <span>GitHub</span>
-                </div>
+				<img class="refactors-widget-company-logo"
+				     src="https://d3keuzeb2crhkn.cloudfront.net/hackerrank/assets/brand/h_mark_sm.png"/>
+
+				<div class="refactors-widget-header-text">
+					<a class="refactors-widget-header-link" target="_blank" href="https://someURL">Username</a>
+					<span class="separator"> |</span>
+					<span>Service</span>
+				</div>
 			</header>
 		<?php endif; ?>
 
@@ -44,6 +46,7 @@
 			</div>
 
 			<h2>This is an H2 title</h2>
+
 			<p>This is a paragraph. And this is <strong>bold</strong>. Oh... Gosh! This is <em>italic</em>!</p>
 		</div>
 	</div>

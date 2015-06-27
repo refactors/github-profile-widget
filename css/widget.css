@@ -52,6 +52,10 @@
   border-top: 1px solid #eee;
 }
 
+.github-block div {
+    margin: .2em 0;
+}
+
 .github-block:last-of-type {
   padding: 10px 0 0 24px;
 }

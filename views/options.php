@@ -15,10 +15,10 @@
 	       name="<?php echo $this->get_field_name( 'username' ); ?>"
 	       type="text"
 	       style="width: 70%"
-	       placeholder="Your Something Username" max=""
+	       placeholder="Your GitHub Username" max=""
 	       value="<?php echo $username ?>"/>
 	<?php if ( ! empty( $username ) ) { ?>
-		<a href='http://someURL/<?php echo $username ?>' target='_blank'>
+		<a href='http://github.com/<?php echo $username ?>' target='_blank'>
 			<img src="<?php echo plugins_url( 'css/expand.png', dirname( __FILE__ ) ); ?>"/>
 		</a>
 	<?php } ?>

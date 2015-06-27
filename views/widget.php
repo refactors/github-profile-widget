@@ -25,22 +25,25 @@
 		<?php echo $before_title . $config["title"] . $after_title; ?>
 	<?php endif; ?>
 
-	<div class="refactors-widget" id="<?php echo $this->id; ?>">
+	<div class="refactors-widget github-widget" id="<?php echo $this->id; ?>">
 
 		<?php if ( ! isset( $config["hideBuiltInHeader"] ) || ! $config["hideBuiltInHeader"] == "on" ) : ?>
 			<header class="refactors-widget-header">
 				<img class="refactors-widget-company-logo"
-				     src="https://d3keuzeb2crhkn.cloudfront.net/hackerrank/assets/brand/h_mark_sm.png"/>
+				     src="https://assets-cdn.github.com/favicon.ico"/>
 
 				<div class="refactors-widget-header-text">
-					<a class="refactors-widget-header-link" target="_blank" href="https://someURL">Username</a>
-					<span class="separator"> |</span>
-					<span>Service</span>
+					<a class="refactors-widget-header-link" target="_blank" href="https://someURL"><?php echo $config["username"]; ?> (Henrique Dias)</a>
 				</div>
 			</header>
 		<?php endif; ?>
 
 		<div class="refactors-widget-content">
+			<img src="https://avatars2.githubusercontent.com/u/5447088?v=3&s=460" style="border-radius: 5px">
+
+
+
+
 			<div class="refactors-shadowed">
 				This text is inside a shadowed box.
 			</div>

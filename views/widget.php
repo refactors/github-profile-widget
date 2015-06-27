@@ -33,28 +33,23 @@
 				     src="https://assets-cdn.github.com/favicon.ico"/>
 
 				<div class="refactors-widget-header-text">
-					<a class="refactors-widget-header-link" target="_blank" href="https://someURL"><?php echo $config["username"]; ?> (Henrique Dias)</a>
+					<a class="refactors-widget-header-link" target="_blank" href="https://github.com/"><?php echo $info->login; ?> (<?php echo $info->name; ?>)</a>
 				</div>
 			</header>
 		<?php endif; ?>
 
 		<div class="refactors-widget-content">
-			<img class="github-profile-pic" src="https://avatars2.githubusercontent.com/u/5447088?v=3&s=460" style="border-radius: 5px">
+			<img class="github-profile-pic" src="<?php echo $info->avatar_url; ?>" style="border-radius: 5px">
 			<span class="github-names">
-				<p class="github-name">Henrique Dias</p>
-				<p class="github-username">hacdias</p>
+				<p class="github-name"><?php echo $info->name; ?></p>
+				<p class="github-username"><?php echo $info->login; ?></p>
 			</span>
 
 			<div class="github-block">
-				<span class="octicon octicon-circuit-board"></span>
-				Developer Program Member
-			</div>
-
-			<div class="github-block">
-				<div><span class="octicon octicon-location"></span>Portugal</div>
-				<div><span class="octicon octicon-mail"></span><a href="mailto:hacdias@gmail.com">hacdias@gmail.com</a></div>
-				<div><span class="octicon octicon-link"></span><a href="http://henriquedias.com">http://henriquedias.com</a></div>
-				<div><span class="octicon octicon-clock"></span>Joined on Sep 12, 2013</div>
+				<div><span class="octicon octicon-location"></span><?php echo $info->location; ?></div>
+				<div><span class="octicon octicon-mail"></span><a href="mailto:<?php echo $info->email; ?>"><?php echo $info->email; ?></a></div>
+				<div><span class="octicon octicon-link"></span><a href="<?php echo $info->blog; ?>"><?php echo $info->blog; ?></a></div>
+				<div><span class="octicon octicon-clock"></span>Joined on <?php echo $info->joined; ?></div>
 			</div>
 
 		</div>

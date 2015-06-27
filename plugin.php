@@ -70,7 +70,7 @@ class GitHub_Profile extends WP_Widget {
 		if ( ! isset( $config['username'] ) ) {
 			echo 'You need to first configure the plugin :)';
 		} else {
-			$info = $this->get_info($config['username'];
+			$info = $this->get_info($config['username']);
 			require 'views/widget.php';
 		}
 
@@ -79,6 +79,9 @@ class GitHub_Profile extends WP_Widget {
 
 	private function get_info($username) {
 		$json = $this->get_github_api_content("https://api.github.com/users/$username");
+
+		$date = new DateTime($json->created_at);
+		$json->joined = $date->format('M d, Y');
 
 		return $json;
 	}

@@ -70,10 +70,29 @@ class GitHub_Profile extends WP_Widget {
 		if ( ! isset( $config['username'] ) ) {
 			echo 'You need to first configure the plugin :)';
 		} else {
+			$info = $this->get_info($config['username'];
 			require 'views/widget.php';
 		}
 
 		ob_end_flush();
+	}
+
+	private function get_info($username) {
+		$json = $this->get_github_api_content("https://api.github.com/users/$username");
+
+		return $json;
+	}
+
+	private function get_github_api_content($url) {
+		$context = stream_context_create(array(
+		  'http'=>array(
+		    'method'=>"GET",
+		    'header'=>"User-Agent: {$config['username']}\r\n"
+		  )
+		));
+
+		$file = file_get_contents($url, false, $context);
+		return json_decode($file);
 	}
 
 	public function isChecked( $conf, $name ) {
@@ -83,6 +102,7 @@ class GitHub_Profile extends WP_Widget {
 	public function register_widget_styles() {
 		wp_enqueue_style( $this->get_widget_slug() . '-common-styles', plugins_url( 'css/common.css', __FILE__ ) );
 		wp_enqueue_style( $this->get_widget_slug() . '-widget-styles', plugins_url( 'css/widget.css', __FILE__ ) );
+		wp_enqueue_style( $this->get_widget_slug() . '-octicons', plugins_url( 'css/octicons/octicons.css', __FILE__ ) );
 	}
 
 	public function register_widget_scripts() {

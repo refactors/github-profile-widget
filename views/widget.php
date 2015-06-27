@@ -39,18 +39,24 @@
 		<?php endif; ?>
 
 		<div class="refactors-widget-content">
-			<img src="https://avatars2.githubusercontent.com/u/5447088?v=3&s=460" style="border-radius: 5px">
+			<img class="github-profile-pic" src="https://avatars2.githubusercontent.com/u/5447088?v=3&s=460" style="border-radius: 5px">
+			<span class="github-names">
+				<p class="github-name">Henrique Dias</p>
+				<p class="github-username">hacdias</p>
+			</span>
 
-
-
-
-			<div class="refactors-shadowed">
-				This text is inside a shadowed box.
+			<div class="github-block">
+				<span class="octicon octicon-circuit-board"></span>
+				Developer Program Member
 			</div>
 
-			<h2>This is an H2 title</h2>
+			<div class="github-block">
+				<div><span class="octicon octicon-location"></span>Portugal</div>
+				<div><span class="octicon octicon-mail"></span><a href="mailto:hacdias@gmail.com">hacdias@gmail.com</a></div>
+				<div><span class="octicon octicon-link"></span><a href="http://henriquedias.com">http://henriquedias.com</a></div>
+				<div><span class="octicon octicon-clock"></span>Joined on Sep 12, 2013</div>
+			</div>
 
-			<p>This is a paragraph. And this is <strong>bold</strong>. Oh... Gosh! This is <em>italic</em>!</p>
 		</div>
 	</div>
 </aside>

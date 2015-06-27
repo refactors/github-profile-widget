@@ -12,3 +12,59 @@
   padding: 5px;
   margin: 0;
 }
+
+.github-profile-pic {
+  width: 25%;
+  display: inline-block;
+}
+
+.github-names {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 3%;
+}
+
+.github-name,
+.github-username {
+  display: block;
+}
+
+.github-name {
+  font-size: 1.2em;
+  margin: 0 0 0.1em !important;
+  font-weight: bold;
+}
+
+.github-username {
+  font-size: 1.1em;
+  margin: 0.1em 0 !important;
+  color: #666;
+}
+
+.github-block:first-of-type {
+  border-top: 0;
+}
+
+.github-block {
+  display: block;
+  padding: 10px 0 8px 24px;
+  font-size: 14px;
+  border-top: 1px solid #eee;
+}
+
+.github-block:last-of-type {
+  padding: 10px 0 0 24px;
+}
+
+.github-block a {
+  color: #4078c0;
+  text-decoration: none;
+}
+
+.github-block .octicon {
+  float: left;
+  width: 16px;
+  margin-left: -24px;
+  color: #ccc;
+  text-align: center;
+}

@@ -78,12 +78,9 @@ class GitHub_Profile extends WP_Widget {
 	}
 
 	private function get_info($username) {
-		$json = $this->get_github_api_content("users/$username");
-
-		$date = new DateTime($json->created_at);
-		$json->joined = $date->format('M d, Y');
-
-		return $json;
+		$profile = $this->get_github_api_content("users/$username");
+		$profile->created_at = new DateTime($profile->created_at);
+		return $profile;
 	}
 
 	private function get_github_api_content($apiPath) {

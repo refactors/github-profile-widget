@@ -62,7 +62,10 @@
                 <?php if ($info->blog != ""): ?>
                     <div><span class="octicon octicon-link"></span><a href="<?php echo $info->blog; ?>"><?php echo $info->blog; ?></a></div>
                 <?php endif; ?>
-                <div><span class="octicon octicon-clock"></span>Joined on <?php echo $info->joined; ?></div>
+                <div>
+                    <span class="octicon octicon-clock"></span>
+                    Joined on <?php echo $info->created_at->format('M d, Y'); ?>
+                </div>
             </div>
 
             <div class="github-block">

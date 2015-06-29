@@ -117,7 +117,7 @@
             <div class="github-block">     
                 <?php foreach ($organizations as $org) { ?>
                     <div>
-                        <a target="_blank" href="<?php echo str_replace('.api', '', $org->html_url); ?>"
+                        <a target="_blank" href="https://github.com/<?php echo $org->login; ?>"
                            title="<?php echo $org->description; ?>">
                             <img src='<?php echo $org->avatar_url; ?>' class="github-avatarurl" />
                             <?php echo $org->login ?>

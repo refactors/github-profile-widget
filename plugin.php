@@ -78,9 +78,9 @@ class GitHub_Profile extends WP_Widget {
 
 		ob_end_flush();
 	}
-        
+
 	private function get_github_api_content($apiPath) {
-            // TODO cache. 
+            // TODO cache.
 		$context = stream_context_create(array(
 		  'http'=>array(
 		    'method'=>"GET",
@@ -96,7 +96,6 @@ class GitHub_Profile extends WP_Widget {
 	}
 
 	public function register_widget_styles() {
-		wp_enqueue_style( $this->get_widget_slug() . '-common-styles', plugins_url( 'css/common.css', __FILE__ ) );
 		wp_enqueue_style( $this->get_widget_slug() . '-widget-styles', plugins_url( 'css/widget.css', __FILE__ ) );
 		wp_enqueue_style( $this->get_widget_slug() . '-octicons', plugins_url( 'css/octicons/octicons.css', __FILE__ ) );
 	}

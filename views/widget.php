@@ -25,21 +25,21 @@
         <?php echo $before_title . $config["title"] . $after_title; ?>
     <?php endif; ?>
 
-    <div class="refactors-widget github-widget" id="<?php echo $this->id; ?>">
+    <div class="github-widget" id="<?php echo $this->id; ?>">
 
         <?php if (!isset($config["hideBuiltInHeader"]) || !$config["hideBuiltInHeader"] == "on") : ?>
-            <header class="refactors-widget-header">
-                <img class="refactors-widget-company-logo" title="GitHub"
+            <header class="github-widget-header">
+                <img class="github-widget-company-logo" title="GitHub"
                      src="https://assets-cdn.github.com/favicon.ico"/>
-                <div class="refactors-widget-header-text">
-                    <a class="refactors-widget-header-link" target="_blank" href="<?php echo $profile->html_url; ?>">
+                <div class="github-widget-header-text">
+                    <a class="github-widget-header-link" target="_blank" href="<?php echo $profile->html_url; ?>">
                         <?php echo $profile->login; ?> (<?php echo $profile->name; ?>)
                     </a>
                 </div>
             </header>
         <?php endif; ?>
 
-        <div class="refactors-widget-content">
+        <div class="github-widget-content">
             <img class="github-profile-pic" src="<?php echo $profile->avatar_url; ?>" style="border-radius: 5px">
             <span class="github-names">
                 <p class="github-name"><?php echo $profile->name; ?></p>

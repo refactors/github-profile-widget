@@ -64,6 +64,7 @@
 
 .github-widget-header-text,
 .github-widget-header-link {
+    font-weight: bold;
     display: inline-block;
     vertical-align: middle;
     line-height: 1.5em;

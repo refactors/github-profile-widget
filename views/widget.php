@@ -49,17 +49,17 @@
             </span>
 
             <div class="github-block">
-                <?php if ($profile->company != ""): ?>
+                <?php if (!empty($profile->company)): ?>
                     <div><span class="octicon octicon-organization"></span><?php echo $profile->company; ?></div>
                 <?php endif; ?>
-                <?php if ($profile->location != ""): ?>
+                <?php if (!empty($profile->location)): ?>
                     <div><span class="octicon octicon-location"></span><?php echo $profile->location; ?></div>
                 <?php endif; ?>
-                <?php if ($profile->email != ""): ?>
+                <?php if (!empty($profile->email)): ?>
                     <div><span class="octicon octicon-mail"></span>
                         <a href="mailto:<?php echo $profile->email; ?>"><?php echo $profile->email; ?></a></div>
                 <?php endif; ?>
-                <?php if ($profile->blog != ""): ?>
+                <?php if (!empty($profile->blog)): ?>
                     <div><span class="octicon octicon-link"></span>
                         <a href="<?php echo $profile->blog; ?>" target="_blank"><?php echo $profile->blog; ?></a>
                     </div>

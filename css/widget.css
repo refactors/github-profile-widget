@@ -193,3 +193,7 @@
 .github-repos {
     display: none;
 }
+
+.github-avatarurl {
+    max-width: 16px;
+}

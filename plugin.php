@@ -73,6 +73,7 @@ class GitHub_Profile extends WP_Widget {
 			$profile = $this->get_github_api_content(self::API_PATH . "/users/" . $config['username']);
                         $profile->created_at = new DateTime($profile->created_at); // TODO we need a generic function
                         $repos = $this->get_github_api_content($profile->repos_url);
+                        $organizations = $this->get_github_api_content($profile->organizations_url);
 			require 'views/widget.php';
 		}
 

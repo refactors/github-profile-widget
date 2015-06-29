@@ -108,10 +108,6 @@ class GitHub_Profile extends WP_Widget {
 		wp_enqueue_style( $this->get_widget_slug() . '-octicons', plugins_url( 'css/octicons/octicons.css', __FILE__ ) );
 	}
 
-	public function register_widget_scripts() {
-		wp_enqueue_script( $this->get_widget_slug() . '-script', plugins_url( 'js/widget.js', __FILE__ ), array( 'jquery' ), null, true );
-	}
-
 }
 
 add_action( 'widgets_init', create_function( '', 'return register_widget("GitHub_Profile");' ) );

@@ -19,6 +19,7 @@ require_once( 'lib/htmlcompressor.php' );
 
 class GitHub_Profile extends WP_Widget {
 
+        const API_PATH = "https://api.github.com";
 	protected $widget_slug = 'github-profile';
 	protected $options = array(
 		"title",
@@ -77,7 +78,7 @@ class GitHub_Profile extends WP_Widget {
 	}
 
 	private function get_info($username) {
-		$json = $this->get_github_api_content("https://api.github.com/users/$username");
+		$json = $this->get_github_api_content("users/$username");
 
 		$date = new DateTime($json->created_at);
 		$json->joined = $date->format('M d, Y');
@@ -85,7 +86,7 @@ class GitHub_Profile extends WP_Widget {
 		return $json;
 	}
 
-	private function get_github_api_content($url) {
+	private function get_github_api_content($apiPath) {
 		$context = stream_context_create(array(
 		  'http'=>array(
 		    'method'=>"GET",
@@ -93,7 +94,7 @@ class GitHub_Profile extends WP_Widget {
 		  )
 		));
 
-		$file = file_get_contents($url, false, $context);
+		$file = file_get_contents(self::API_PATH . '/' . $apiPath, false, $context);
 		return json_decode($file);
 	}
 

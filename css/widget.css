@@ -64,6 +64,7 @@
 
 .github-widget-header-text,
 .github-widget-header-link {
+    font-weight: bold;
     display: inline-block;
     vertical-align: middle;
     line-height: 1.5em;
@@ -187,9 +188,20 @@
 }
 
 .github-repos-toggle:checked ~ .github-repos {
-    display: block;
+    max-height: 1000px;
 }
 
 .github-repos {
-    display: none;
+    max-height: 0px;
+    overflow: hidden;
+
+    -webkit-transition: all ease-in-out .5s;
+    -moz-transition: all ease-in-out .5s;
+    -ms-transition: all ease-in-out .5s;
+    -o-transition: all ease-in-out .5s;
+    transition: all ease-in-out .5s;
+}
+
+.github-avatarurl {
+    max-width: 16px;
 }

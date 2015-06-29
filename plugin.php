@@ -70,8 +70,8 @@ class GitHub_Profile extends WP_Widget {
 		if ( ! isset( $config['username'] ) ) {
 			echo 'You need to first configure the plugin :)';
 		} else {
-			$info = $this->get_github_api_content("users/" . $config['username']);
-                        $info->created_at = new DateTime($info->created_at); // TODO we need a generic function
+			$profile = $this->get_github_api_content("users/" . $config['username']);
+                        $profile->created_at = new DateTime($profile->created_at); // TODO we need a generic function
                         //$repos = $this->get_repo_info($config['username']);
 			require 'views/widget.php';
 		}

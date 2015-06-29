@@ -117,8 +117,8 @@
             <div class="github-block">     
                 <?php foreach ($organizations as $org) { ?>
                     <div>
-                        <a target="_blank" href="<?php echo $org->url; ?>"
-                           title="<?php echo $org->full_name; ?>">
+                        <a target="_blank" href="<?php echo $org->html_url; ?>"
+                           title="<?php echo $org->description; ?>">
                             <img src='<?php echo $org->avatar_url; ?>' class="github-avatarurl" />
                             <?php echo $org->login ?>
                         </a>

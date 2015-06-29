@@ -31,7 +31,6 @@
             <header class="refactors-widget-header">
                 <img class="refactors-widget-company-logo" title="GitHub"
                      src="https://assets-cdn.github.com/favicon.ico"/>
-
                 <div class="refactors-widget-header-text">
                     <a class="refactors-widget-header-link" target="_blank" href="<?php echo $profile->html_url; ?>">
                         <?php echo $profile->login; ?> (<?php echo $profile->name; ?>)

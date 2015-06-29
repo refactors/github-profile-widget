@@ -33,7 +33,9 @@
                      src="https://assets-cdn.github.com/favicon.ico"/>
 
                 <div class="refactors-widget-header-text">
-                    <a class="refactors-widget-header-link" target="_blank" href="https://github.com/"><?php echo $info->login; ?> (<?php echo $info->name; ?>)</a>
+                    <a class="refactors-widget-header-link" target="_blank" href="<?php echo $info->html_url; ?>">
+                        <?php echo $info->login; ?> (<?php echo $info->name; ?>)
+                    </a>
                 </div>
             </header>
         <?php endif; ?>
@@ -42,7 +44,9 @@
             <img class="github-profile-pic" src="<?php echo $info->avatar_url; ?>" style="border-radius: 5px">
             <span class="github-names">
                 <p class="github-name"><?php echo $info->name; ?></p>
-                <p class="github-username"><?php echo $info->login; ?></p>
+                <a class="github-username" target="_blank" href="<?php echo $info->html_url; ?>">
+                    <?php echo $info->login; ?>
+                </a>
             </span>
 
             <div class="github-block">

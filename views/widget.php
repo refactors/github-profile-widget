@@ -32,7 +32,8 @@
                 <img class="github-widget-company-logo" title="GitHub"
                      src="https://assets-cdn.github.com/favicon.ico"/>
                 <div class="github-widget-header-text">
-                    <a class="github-widget-header-link" target="_blank" href="<?php echo $profile->html_url; ?>">
+                    <a class="github-widget-header-link" target="_blank" 
+                       href="<?php echo $profile->html_url; ?>" title="Check profile">
                         <?php echo $profile->login; ?> (<?php echo $profile->name; ?>)
                     </a>
                 </div>
@@ -43,7 +44,7 @@
             <img class="github-profile-pic" src="<?php echo $profile->avatar_url; ?>" style="border-radius: 5px">
             <span class="github-names">
                 <p class="github-name"><?php echo $profile->name; ?></p>
-                <a class="github-username" target="_blank" href="<?php echo $profile->html_url; ?>">
+                <a class="github-username" target="_blank" href="<?php echo $profile->html_url; ?>" title="Check profile">
                     <?php echo $profile->login; ?>
                 </a>
             </span>
@@ -70,31 +71,18 @@
                 </div>
            
             </div>            
-                     
-            <?php foreach ($organizations as $org) { ?>
-                <div>
-                    <a target="_blank" href="<?php echo $org->url; ?>"
-                       title="<?php echo $org->full_name; ?>">
-                        <img src='<?php echo $org->avatar_url; ?>' class="github-avatarurl" />
-                        <?php echo $org->login ?>
-                    </a>
-                </div>
-            <?php } ?>
-
-            <div class="github-block">
-                <div>
-                    <span class="octicon octicon-organization"></span>
-                    <a href="https://github.com/<?php echo $profile->login; ?>/followers" target="_blank">
-                        <?php echo $profile->followers; ?> Followers
-                    </a>
-                </div>
-                <div>
-                    <span class="octicon octicon-person"></span>
-                    <a href="https://github.com/<?php echo $profile->login; ?>/following" target="_blank">
-                        <?php echo $profile->following; ?> Following
-                    </a>
-                </div>
+             
+            <div class="github-block github-vcard-stats">
+                <a class="github-vcard-stat" href="https://github.com/<?php echo $profile->login; ?>/followers">
+                    <strong class="github-vcard-stat-count"><?php echo $profile->followers; ?></strong>
+                    <span class="text-muted">Followers</span>
+                </a>
+                <a class="github-vcard-stat" href="https://github.com/<?php echo $profile->login; ?>/following">
+                    <strong class="github-vcard-stat-count"><?php echo $profile->following; ?></strong>
+                    <span class="text-muted">Following</span>
+                </a>
             </div>
+            <div style="clear: both;"></div>
 
             <div class="github-block">
                 <div>
@@ -123,6 +111,19 @@
                         <?php echo $profile->public_gists; ?> Public Gists
                     </a>
                 </div>
+            </div>
+            
+            
+            <div class="github-block">     
+                <?php foreach ($organizations as $org) { ?>
+                    <div>
+                        <a target="_blank" href="<?php echo $org->url; ?>"
+                           title="<?php echo $org->full_name; ?>">
+                            <img src='<?php echo $org->avatar_url; ?>' class="github-avatarurl" />
+                            <?php echo $org->login ?>
+                        </a>
+                    </div>
+                <?php } ?>
             </div>
 
         </div>

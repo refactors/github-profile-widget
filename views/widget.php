@@ -68,7 +68,18 @@
                     <span class="octicon octicon-clock"></span>
                     Joined on <?php echo $profile->created_at->format('M d, Y'); ?>
                 </div>
-            </div>
+           
+            </div>            
+                     
+            <?php foreach ($organizations as $org) { ?>
+                <div>
+                    <a target="_blank" href="<?php echo $org->url; ?>"
+                       title="<?php echo $org->full_name; ?>">
+                        <img src='<?php echo $org->avatar_url; ?>' class="github-avatarurl" />
+                        <?php echo $org->login ?>
+                    </a>
+                </div>
+            <?php } ?>
 
             <div class="github-block">
                 <div>

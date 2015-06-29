@@ -70,9 +70,9 @@ class GitHub_Profile extends WP_Widget {
 		if ( ! isset( $config['username'] ) ) {
 			echo 'You need to first configure the plugin :)';
 		} else {
-			$profile = $this->get_github_api_content("users/" . $config['username']);
+			$profile = $this->get_github_api_content(self::API_PATH . "/users/" . $config['username']);
                         $profile->created_at = new DateTime($profile->created_at); // TODO we need a generic function
-                        //$repos = $this->get_repo_info($config['username']);
+                        $repos = $this->get_github_api_content($profile->repos_url);
 			require 'views/widget.php';
 		}
 
@@ -80,14 +80,14 @@ class GitHub_Profile extends WP_Widget {
 	}
         
 	private function get_github_api_content($apiPath) {
+            // TODO cache. 
 		$context = stream_context_create(array(
 		  'http'=>array(
 		    'method'=>"GET",
 		    'header'=>"User-Agent: {$config['username']}\r\n"
 		  )
 		));
-
-		$file = file_get_contents(self::API_PATH . '/' . $apiPath, false, $context);
+		$file = file_get_contents($apiPath, false, $context);
 		return json_decode($file);
 	}
 

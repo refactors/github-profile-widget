@@ -74,8 +74,18 @@
             </div>
 
             <div class="github-block">
-                <div><span class="octicon octicon-repo"></span><a href="https://github.com/<?php echo $info->login; ?>/repositories"><?php echo $info->public_repos; ?> Public Repositories</a></div>
-                <div><span class="octicon octicon-gist"></span><a href="https://gist.github.com/<?php echo $info->login; ?>"><?php echo $info->public_gists; ?> Public Gists</a></div>
+                <div>
+                    <span class="octicon octicon-repo"></span>
+                    <a href="https://github.com/<?php echo $info->login; ?>/repositories" target="_blank">
+                        <?php echo $info->public_repos; ?> Public Repositories
+                    </a>
+                </div>
+                <div>
+                    <span class="octicon octicon-gist"></span>
+                    <a href="https://gist.github.com/<?php echo $info->login; ?>" target="_blank">
+                        <?php echo $info->public_gists; ?> Public Gists
+                    </a>
+                </div>
             </div>
 
         </div>

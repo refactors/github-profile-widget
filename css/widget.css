@@ -3,15 +3,12 @@
 /* WIDGET GENERAL */
 
 .github-widget {
-    border-radius: 0.313em;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
-    border-color: rgba(57, 66, 78, 0.117647);
-    border-style: solid;
-    border-width: 0.313em;
-    color: rgb(57, 66, 78);
-    background: #f5f5f5;
-    font-size: 0.85em;
+    font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: #fff;
+    border: 1px solid #d8d8d8 !important;
+    border-radius: 3px;
+    color: #333;
 }
 
 .github-widget,
@@ -98,11 +95,7 @@
 /* COSTUM */
 
 .github-widget {
-    font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-    background-color: #fff;
-    border: 1px solid #d8d8d8 !important;
-    border-radius: 3px;
-    color: #333;
+
 }
 
 .github-widget .github-widget-header {
@@ -187,9 +180,16 @@
 }
 
 .github-repos-toggle:checked ~ .github-repos {
-    display: block;
+    max-height: 9999999px;
 }
 
 .github-repos {
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
 }

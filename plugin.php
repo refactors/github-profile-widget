@@ -79,7 +79,7 @@ class GitHub_Profile extends WP_Widget {
 
 	private function get_info($username) {
 		$profile = $this->get_github_api_content("users/$username");
-		$profile->created_at = new DateTime($profile->created_at);
+		$profile->created_at = new DateTime($profile->created_at); // TODO we need a generic function
 		return $profile;
 	}
 

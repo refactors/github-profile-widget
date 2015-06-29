@@ -33,52 +33,52 @@
                      src="https://assets-cdn.github.com/favicon.ico"/>
 
                 <div class="refactors-widget-header-text">
-                    <a class="refactors-widget-header-link" target="_blank" href="<?php echo $info->html_url; ?>">
-                        <?php echo $info->login; ?> (<?php echo $info->name; ?>)
+                    <a class="refactors-widget-header-link" target="_blank" href="<?php echo $profile->html_url; ?>">
+                        <?php echo $profile->login; ?> (<?php echo $profile->name; ?>)
                     </a>
                 </div>
             </header>
         <?php endif; ?>
 
         <div class="refactors-widget-content">
-            <img class="github-profile-pic" src="<?php echo $info->avatar_url; ?>" style="border-radius: 5px">
+            <img class="github-profile-pic" src="<?php echo $profile->avatar_url; ?>" style="border-radius: 5px">
             <span class="github-names">
-                <p class="github-name"><?php echo $info->name; ?></p>
-                <a class="github-username" target="_blank" href="<?php echo $info->html_url; ?>">
-                    <?php echo $info->login; ?>
+                <p class="github-name"><?php echo $profile->name; ?></p>
+                <a class="github-username" target="_blank" href="<?php echo $profile->html_url; ?>">
+                    <?php echo $profile->login; ?>
                 </a>
             </span>
 
             <div class="github-block">
-                <?php if ($info->company != ""): ?>
-                    <div><span class="octicon octicon-organization"></span><?php echo $info->company; ?></div>
+                <?php if ($profile->company != ""): ?>
+                    <div><span class="octicon octicon-organization"></span><?php echo $profile->company; ?></div>
                 <?php endif; ?>
-                <?php if ($info->location != ""): ?>
-                    <div><span class="octicon octicon-location"></span><?php echo $info->location; ?></div>
+                <?php if ($profile->location != ""): ?>
+                    <div><span class="octicon octicon-location"></span><?php echo $profile->location; ?></div>
                 <?php endif; ?>
-                <?php if ($info->email != ""): ?>
-                    <div><span class="octicon octicon-mail"></span><a href="mailto:<?php echo $info->email; ?>"><?php echo $info->email; ?></a></div>
+                <?php if ($profile->email != ""): ?>
+                    <div><span class="octicon octicon-mail"></span><a href="mailto:<?php echo $profile->email; ?>"><?php echo $profile->email; ?></a></div>
                 <?php endif; ?>
-                <?php if ($info->blog != ""): ?>
-                    <div><span class="octicon octicon-link"></span><a href="<?php echo $info->blog; ?>"><?php echo $info->blog; ?></a></div>
+                <?php if ($profile->blog != ""): ?>
+                    <div><span class="octicon octicon-link"></span><a href="<?php echo $profile->blog; ?>"><?php echo $profile->blog; ?></a></div>
                 <?php endif; ?>
                 <div>
                     <span class="octicon octicon-clock"></span>
-                    Joined on <?php echo $info->created_at->format('M d, Y'); ?>
+                    Joined on <?php echo $profile->created_at->format('M d, Y'); ?>
                 </div>
             </div>
 
             <div class="github-block">
                 <div>
                     <span class="octicon octicon-organization"></span>
-                    <a href="https://github.com/<?php echo $info->login; ?>/followers" target="_blank">
-                        <?php echo $info->followers; ?> Followers
+                    <a href="https://github.com/<?php echo $profile->login; ?>/followers" target="_blank">
+                        <?php echo $profile->followers; ?> Followers
                     </a>
                 </div>
                 <div>
                     <span class="octicon octicon-person"></span>
-                    <a href="https://github.com/<?php echo $info->login; ?>/following" target="_blank">
-                        <?php echo $info->following; ?> Following
+                    <a href="https://github.com/<?php echo $profile->login; ?>/following" target="_blank">
+                        <?php echo $profile->following; ?> Following
                     </a>
                 </div>
             </div>
@@ -86,14 +86,14 @@
             <div class="github-block">
                 <div>
                     <span class="octicon octicon-repo"></span>
-                    <a href="https://github.com/<?php echo $info->login; ?>/repositories" target="_blank">
-                        <?php echo $info->public_repos; ?> Public Repositories
+                    <a href="https://github.com/<?php echo $profile->login; ?>/repositories" target="_blank">
+                        <?php echo $profile->public_repos; ?> Public Repositories
                     </a>
                 </div>
                 <div>
                     <span class="octicon octicon-gist"></span>
-                    <a href="https://gist.github.com/<?php echo $info->login; ?>" target="_blank">
-                        <?php echo $info->public_gists; ?> Public Gists
+                    <a href="https://gist.github.com/<?php echo $profile->login; ?>" target="_blank">
+                        <?php echo $profile->public_gists; ?> Public Gists
                     </a>
                 </div>
             </div>

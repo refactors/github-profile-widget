@@ -57,10 +57,13 @@
                     <div><span class="octicon octicon-location"></span><?php echo $profile->location; ?></div>
                 <?php endif; ?>
                 <?php if ($profile->email != ""): ?>
-                    <div><span class="octicon octicon-mail"></span><a href="mailto:<?php echo $profile->email; ?>"><?php echo $profile->email; ?></a></div>
+                    <div><span class="octicon octicon-mail"></span>
+                        <a href="mailto:<?php echo $profile->email; ?>"><?php echo $profile->email; ?></a></div>
                 <?php endif; ?>
                 <?php if ($profile->blog != ""): ?>
-                    <div><span class="octicon octicon-link"></span><a href="<?php echo $profile->blog; ?>"><?php echo $profile->blog; ?></a></div>
+                    <div><span class="octicon octicon-link"></span>
+                        <a href="<?php echo $profile->blog; ?>" target="_blank"><?php echo $profile->blog; ?></a>
+                    </div>
                 <?php endif; ?>
                 <div>
                     <span class="octicon octicon-clock"></span>

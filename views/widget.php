@@ -96,14 +96,14 @@
 	                <label for="gh-repo-t" class="github-repos-toggle-la octicon octicon-chevron-down"></label>
 
 	                <div class="github-repos">
-		                <?php foreach ( $repos as $repo ) { ?>
-			                <div class="github-repo-name">
-				                <a target="_blank" href="<?php echo $repo->html_url; ?>"
-				                   title="Owner: <?php echo $repo->owner->login; ?>">
-					                <?php echo $repo->name ?>
-				                </a>
-			                </div>
-		                <?php } ?>
+		                <?php foreach ($repos as $repo) { ?>
+                                    <div class="github-repo-name">
+                                        <a target="_blank" href="<?php echo $repo->html_url; ?>"
+                                           title="<?php echo $repo->full_name; ?>">
+                                            <?php echo $repo->name ?>
+                                        </a>
+                                    </div>
+                                <?php } ?>
 	                </div>
                 </div>
                 <div>

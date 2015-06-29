@@ -98,57 +98,57 @@
 /* COSTUM */
 
 .github-widget {
-  font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-  background-color: #fff;
-  border: 1px solid #d8d8d8 !important;
-  border-radius: 3px;
-  color: #333;
+    font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: #fff;
+    border: 1px solid #d8d8d8 !important;
+    border-radius: 3px;
+    color: #333;
 }
 
 .github-widget .github-widget-header {
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #d8d8d8;
-  padding: 5px;
-  margin: 0;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #d8d8d8;
+    padding: 5px;
+    margin: 0;
 }
 
 .github-profile-pic {
-  width: 25%;
-  display: inline-block;
+    width: 25%;
+    display: inline-block;
 }
 
 .github-names {
-  display: inline-block;
-  vertical-align: top;
-  margin-left: 3%;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 3%;
 }
 
 .github-name,
 .github-username {
-  display: block;
+    display: block;
 }
 
 .github-name {
-  font-size: 1.2em;
-  margin: 0 0 0.1em !important;
-  font-weight: bold;
+    font-size: 1.2em;
+    margin: 0 0 0.1em !important;
+    font-weight: bold;
 }
 
 .github-username {
-  font-size: 1.1em;
-  margin: 0.1em 0 !important;
-  color: #666;
+    font-size: 1.1em;
+    margin: 0.1em 0 !important;
+    color: #666;
 }
 
 .github-block:first-of-type {
-  border-top: 0;
+    border-top: 0;
 }
 
 .github-block {
-  display: block;
-  padding: 10px 0 8px 24px;
-  font-size: 14px;
-  border-top: 1px solid #eee;
+    display: block;
+    padding: 10px 0 8px 24px;
+    font-size: 14px;
+    border-top: 1px solid #eee;
 }
 
 .github-block div {
@@ -156,22 +156,40 @@
 }
 
 .github-block:last-of-type {
-  padding: 10px 0 0 24px;
+    padding: 10px 0 0 24px;
 }
 
 .github-block a {
-  color: #4078c0;
-  text-decoration: none;
+    color: #4078c0;
+    text-decoration: none;
 }
 
 .github-block .octicon {
-  float: left;
-  width: 16px;
-  margin-left: -24px;
-  color: #ccc;
-  text-align: center;
+    float: left;
+    width: 16px;
+    margin-left: -24px;
+    color: #ccc;
+    text-align: center;
 }
 
 .github-repo-name {
     font-size: 80%;
+}
+
+.github-repos-toggle {
+    display: none;
+}
+
+.github-repos-toggle-la {
+    float: none !important;
+    margin: 0 !important;
+    cursor: pointer;
+}
+
+.github-repos-toggle:checked ~ .github-repos {
+    display: block;
+}
+
+.github-repos {
+    display: none;
 }

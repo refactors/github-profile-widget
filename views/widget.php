@@ -91,14 +91,20 @@
                     <a href="https://github.com/<?php echo $profile->login; ?>/repositories" target="_blank">
                         <?php echo $profile->public_repos; ?> Public Repositories
                     </a>
-                    <?php foreach ($repos as $repo) { ?>
-                        <div class="github-repo-name">
-                            <a target="_blank" href="<?php echo $repo->html_url; ?>"
-                               title="Owner: <?php echo $repo->owner->login; ?>">
-                                <?php echo $repo->name ?>
-                            </a>
-                        </div>
-                    <?php } ?>
+
+	                <input type="checkbox" id="gh-repo-t" class="github-repos-toggle">
+	                <label for="gh-repo-t" class="github-repos-toggle-la octicon octicon-chevron-down"></label>
+
+	                <div class="github-repos">
+		                <?php foreach ( $repos as $repo ) { ?>
+			                <div class="github-repo-name">
+				                <a target="_blank" href="<?php echo $repo->html_url; ?>"
+				                   title="Owner: <?php echo $repo->owner->login; ?>">
+					                <?php echo $repo->name ?>
+				                </a>
+			                </div>
+		                <?php } ?>
+	                </div>
                 </div>
                 <div>
                     <span class="octicon octicon-gist"></span>

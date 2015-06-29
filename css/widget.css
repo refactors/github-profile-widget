@@ -171,3 +171,7 @@
   color: #ccc;
   text-align: center;
 }
+
+.github-repo-name {
+    font-size: 80%;
+}

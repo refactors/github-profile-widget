@@ -69,8 +69,18 @@
             </div>
 
             <div class="github-block">
-                <div><span class="octicon octicon-organization"></span><a href="https://github.com/<?php echo $info->login; ?>/followers"><?php echo $info->followers; ?> Followers</a></div>
-                <div><span class="octicon octicon-person"></span><a href="https://github.com/<?php echo $info->login; ?>/following"><?php echo $info->following; ?> Following</a></div>
+                <div>
+                    <span class="octicon octicon-organization"></span>
+                    <a href="https://github.com/<?php echo $info->login; ?>/followers" target="_blank">
+                        <?php echo $info->followers; ?> Followers
+                    </a>
+                </div>
+                <div>
+                    <span class="octicon octicon-person"></span>
+                    <a href="https://github.com/<?php echo $info->login; ?>/following" target="_blank">
+                        <?php echo $info->following; ?> Following
+                    </a>
+                </div>
             </div>
 
             <div class="github-block">

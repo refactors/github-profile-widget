@@ -38,7 +38,6 @@ class GitHub_Profile extends WP_Widget {
 		);
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_widget_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_widget_scripts' ) );
 	}
 
 	public function get_widget_slug() {

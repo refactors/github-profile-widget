@@ -91,6 +91,14 @@
                     <a href="https://github.com/<?php echo $profile->login; ?>/repositories" target="_blank">
                         <?php echo $profile->public_repos; ?> Public Repositories
                     </a>
+                    <?php foreach ($repos as $repo) { ?>
+                        <div class="github-repo-name">
+                            <a target="_blank" href="<?php echo $repo->html_url; ?>"
+                               title="Owner: <?php echo $repo->owner->login; ?>">
+                                <?php echo $repo->name ?>
+                            </a>
+                        </div>
+                    <?php } ?>
                 </div>
                 <div>
                     <span class="octicon octicon-gist"></span>

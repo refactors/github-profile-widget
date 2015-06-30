@@ -25,9 +25,8 @@
 <?php } ?>
 </p>
 
-<h4>Show:</h4>
-
 <p>
+<h4>Show</h4>
     <?php foreach ($this->checkboxes as $option): ?>
         <input class="checkbox" type="checkbox"
     <?php checked(${$option}, 'on'); ?>

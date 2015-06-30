@@ -54,7 +54,9 @@
 	</p>
 
 	<p>
-		<small>0 disables cache; If disabled the plugin may stop working after a while because of API limits.</small>
+		<small>0 disables cache; less that 5 may create problems because of API limits <strong>unless you provide a
+				token</strong>.
+		</small>
 	</p>
 
 	<p>

@@ -19,7 +19,7 @@ require_once( 'lib/htmlcompressor.php' );
 class GitHub_Profile extends WP_Widget {
 
 	const API_PATH = "https://api.github.com";
-	const API_CACHE_SECONDS = 10; // TODO increase
+	const API_CACHE_SECONDS = 3600; // 1h
 
 	protected $widget_slug = 'github-profile';
 	protected $options = array(
@@ -85,7 +85,7 @@ class GitHub_Profile extends WP_Widget {
 		$file = get_option( $apiPath ); // $apiPath is auto sanitized
 		$timestamp = get_option( $apiPath . 'time' );
 		$now  = round( microtime( true ) );
-
+		
 		if ( ! $file || ! $timestamp || $now - $timestamp > self::API_CACHE_SECONDS ) {
 			$header = "User-Agent: {$config[ 'username' ]}\r\n";
 			if ( isset( $config['oAuth'] ) ) {

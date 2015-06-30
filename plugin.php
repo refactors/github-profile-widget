@@ -116,14 +116,14 @@ class GitHub_Profile extends WP_Widget
 		$timeDiff = microtime(true) - $timestamp + rand(-4, 4); // 9 random results, prevents simultaneous expiring
 
 		if (!$file || !$timestamp || $timeDiff > $config['cache'] * 60) {
-            $header = "User-Agent: {$config[ 'username' ]}\r\n";
+            $headers = "User-Agent: {$config[ 'username' ]}\r\n";
             if (isset($config['oAuth'])) {
-                $header = "Authorization: token {$config[ 'oAuth' ]}\r\n" . $header;
+                $headers = "Authorization: token {$config[ 'oAuth' ]}\r\n" . $headers;
             }
             $context = stream_context_create(array(
                 'http' => array(
                     'method' => "GET",
-                    'header' => $header
+                    'header' => $headers
                 )
             ));
             $file = file_get_contents($apiPath, false, $context);

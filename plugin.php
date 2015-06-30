@@ -26,10 +26,10 @@ class GitHub_Profile extends WP_Widget {
 	protected $checkboxes = array(
 		"meta_info"           => "Meta Info",
 		"followers_following" => "Followers and Following",
-			"repositories"        => "Repositories",
-			"gists"               => "Gists",
-			"organizations"       => "Organizations",
-			"feed"                => "Feed"
+		"repositories"  => "Repositories",
+		"gists"         => "Gists",
+		"organizations" => "Organizations",
+		"feed"          => "Feed"
 	);
 
 
@@ -73,10 +73,17 @@ class GitHub_Profile extends WP_Widget {
 		if ( ! isset( $config['username'] ) ) {
 			echo 'You need to first configure the plugin :)';
 		} else {
-			$profile       = $this->get_github_api_content( self::API_PATH . "/users/" . $config['username'], $config );
+			$profile = $this->get_github_api_content( self::API_PATH . "/users/" . $config['username'], $config );
 			$profile->created_at = new DateTime( $profile->created_at );
-			$repos         = $this->get_github_api_content( $profile->repos_url, $config );
-			$organizations = $this->get_github_api_content( $profile->organizations_url, $config );
+
+			if ( $config['repositories'] == 'on' ) {
+				$repos = $this->get_github_api_content( $profile->repos_url, $config );
+			}
+
+			if ( $config['organizations'] == 'on' ) {
+				$organizations = $this->get_github_api_content( $profile->organizations_url, $config );
+			}
+
 			require 'views/widget.php';
 		}
 

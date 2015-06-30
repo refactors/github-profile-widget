@@ -81,7 +81,7 @@ class GitHub_Profile extends WP_Widget {
 		ob_start( "refactors_HTMLCompressor" );
 
 		if ( empty( $config['username'] ) ) {
-			echo 'Please configure the plgin first';
+			echo 'Please configure the plugin first';
 		} else {
 			$profile = $this->get_github_api_content( self::API_PATH . "/users/" . $config['username'], $config );
 			$profile->created_at = new DateTime( $profile->created_at );
@@ -95,7 +95,6 @@ class GitHub_Profile extends WP_Widget {
 			if ( $this->is_checked ($config, 'feed' )) {
                             $profile->events_url = str_replace('{/privacy}', '/public', $profile->events_url);
                             $feed = $this->get_github_api_content( $profile->events_url, $config );
-                            echo $feed;
 			}
 			require 'views/widget.php';
 		}

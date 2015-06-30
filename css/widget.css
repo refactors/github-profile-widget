@@ -228,7 +228,7 @@
 /* Feed CSS */
 .github-feed .github-feed-entry {
   position: relative;
-  padding: 0 0 1em 45px;
+  padding: 0 0 0.2em 45px;
   overflow: hidden;
   border-top: 1px solid #f1f1f1;
 }
@@ -236,7 +236,7 @@
     border: none;
 }
 .github-feed .github-feed-entry .body {
-  padding: 1em 0 0;
+  padding: 0.8em 0 0;
   overflow: hidden;
   font-size: 14px;
   border-bottom: 0;
@@ -250,23 +250,23 @@
   padding: 3px;
   color: #bbb;
 }
-.github-feed .github-feed-entry .time {
+.github-feed-entry .time {
   font-size: 12px;
   color: #bbb;
 }
-.github-feed .github-feed-entry .title {
+.github-feed-entry .title {
   padding: 0;
   font-weight: bold;
 }
-.github-feed .commits li {
+.github-feed-entry .commits li {
   margin-top: 0.15em;
   list-style-type: none;
 }
-.github-feed code {
+.github-feed-entry code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 12px;
 }
-.github-feed .commits li .message {
+.github-feed-entry .commits li .message {
   display: inline-block;
   max-width: 390px;
   margin-top: 2px;
@@ -277,8 +277,15 @@
   white-space: nowrap;
   vertical-align: top;
 }
-.github-feed li blockquote {
+.github-feed-entry li blockquote {
   display: inline;
   font-size: 13px;
   color: #666;
+}
+.github-feed-entry .gravatar {
+  float: left;
+  margin-right: 0.6em;
+  line-height: 0;
+  background-color: #fff;
+  border-radius: 3px;
 }

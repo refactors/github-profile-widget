@@ -40,98 +40,106 @@
 	    </header>
 
         <div class="github-widget-content">
-	        <?php if ( $this->is_checked($config, 'meta_info' ): ?>
-            <a target="_blank" href="<?php echo $profile->html_url; ?>" title="Check profile">
-                <img class="github-profile-pic" src="<?php echo $profile->avatar_url; ?>" style="border-radius: 5px">
-                <span class="github-names">
-                    <p class="github-name"><?php echo $profile->name; ?></p>
-                    <span class="github-username"><?php echo $profile->login; ?></span>
-                </span>
-            </a>
-
-            <div class="github-block">
-                <?php if (!empty($profile->company)): ?>
-                    <div title="Company"><span class="octicon octicon-organization"></span><?php echo $profile->company; ?></div>
-                <?php endif; ?>
-                <?php if (!empty($profile->location)): ?>
-                    <div title="Location"><span class="octicon octicon-location"></span><?php echo $profile->location; ?></div>
-                <?php endif; ?>
-                <?php if (!empty($profile->email)): ?>
-                    <div title="Email"><span class="octicon octicon-mail"></span>
-                        <a href="mailto:<?php echo $profile->email; ?>"><?php echo $profile->email; ?></a></div>
-                <?php endif; ?>
-                <?php if (!empty($profile->blog)): ?>
-                    <div title="Blog"><span class="octicon octicon-link"></span>
-                        <a href="<?php echo $profile->blog; ?>" target="_blank"><?php echo $profile->blog; ?></a>
-                    </div>
-                <?php endif; ?>
-                <div>
-                    <span class="octicon octicon-clock"></span>
-                    Joined on <?php echo $profile->created_at->format('M d, Y'); ?>
-                </div>
-
-            </div>
-	        <?php endif; ?>
-
-            <?php if ( $this->is_checked($config, 'followers_and_following' ): ?>
-            <div class="github-block github-vcard-stats">
-                <a class="github-vcard-stat" target='_blank' 
-                   href="https://github.com/<?php echo $profile->login; ?>/followers">
-                    <strong class="github-vcard-stat-count"><?php echo $profile->followers; ?></strong>
-                    <span class="text-muted">Followers</span>
+            <?php if ( $this->is_checked($config, 'meta_info' )) : ?>
+                <a target="_blank" href="<?php echo $profile->html_url; ?>" title="Check profile">
+                    <img class="github-profile-pic" src="<?php echo $profile->avatar_url; ?>" style="border-radius: 5px">
+                    <span class="github-names">
+                        <p class="github-name"><?php echo $profile->name; ?></p>
+                        <span class="github-username"><?php echo $profile->login; ?></span>
+                    </span>
                 </a>
-                <a class="github-vcard-stat" target='_blank' 
-                   href="https://github.com/<?php echo $profile->login; ?>/following">
-                    <strong class="github-vcard-stat-count"><?php echo $profile->following; ?></strong>
-                    <span class="text-muted">Following</span>
-                </a>
-                <div style="clear: both;"></div>
-            </div>
-	        <?php endif; ?>
 
-	    <?php if ( $this->is_checked($config, 'meta_info' ): ?>
-            <div class="github-block">
-                <div>
-                    <span class="octicon octicon-repo"></span>
-                    <a href="https://github.com/<?php echo $profile->login; ?>/repositories" target="_blank">
-                        <?php echo $profile->public_repos; ?> Public Repositories
-                    </a>
-
-	                <?php if ( $config['repositories'] == 'on' ): ?>
-                    <input type="checkbox" id="gh-repo-t" class="github-repos-toggle">
-                    <label for="gh-repo-t" class="github-repos-toggle-la octicon octicon-chevron-down"></label>
-
-                    <div class="github-repos">
-                        <?php foreach ($repos as $repo) { ?>
-                            <div class="github-repo-name">
-                                <a target="_blank" href="<?php echo $repo->html_url; ?>"
-                                   title="<?php echo $repo->full_name; ?>">
-                                    <?php echo $repo->name ?>
-                                </a>
-                            </div>
-                        <?php } ?>
+                <div class="github-block">
+                    <?php if (!empty($profile->company)): ?>
+                        <div title="Company"><span class="octicon octicon-organization"></span><?php echo $profile->company; ?></div>
+                    <?php endif; ?>
+                    <?php if (!empty($profile->location)): ?>
+                        <div title="Location"><span class="octicon octicon-location"></span><?php echo $profile->location; ?></div>
+                    <?php endif; ?>
+                    <?php if (!empty($profile->email)): ?>
+                        <div title="Email"><span class="octicon octicon-mail"></span>
+                            <a href="mailto:<?php echo $profile->email; ?>"><?php echo $profile->email; ?></a></div>
+                    <?php endif; ?>
+                    <?php if (!empty($profile->blog)): ?>
+                        <div title="Blog"><span class="octicon octicon-link"></span>
+                            <a href="<?php echo $profile->blog; ?>" target="_blank"><?php echo $profile->blog; ?></a>
+                        </div>
+                    <?php endif; ?>
+                    <div>
+                        <span class="octicon octicon-clock"></span>
+                        Joined on <?php echo $profile->created_at->format('M d, Y'); ?>
                     </div>
-	                <?php endif; ?>
-                </div>
-                <div>
-                    <span class="octicon octicon-gist"></span>
-                    <a href="https://gist.github.com/<?php echo $profile->login; ?>" target="_blank">
-                        <?php echo $profile->public_gists; ?> Public Gists
-                    </a>
-                </div>
-            </div>
-	        <?php endif; ?>
 
-	        <?php if ( $this->is_checked($config, 'organizations' ): ?>
-		        <div class="github-block github-organizations">
+                </div>
+            <?php endif; ?>
+
+            <?php if ( $this->is_checked($config, 'followers_and_following' ) ): ?>
+                <div class="github-block github-vcard-stats">
+                    <a class="github-vcard-stat" target='_blank' 
+                       href="https://github.com/<?php echo $profile->login; ?>/followers">
+                        <strong class="github-vcard-stat-count"><?php echo $profile->followers; ?></strong>
+                        <span class="text-muted">Followers</span>
+                    </a>
+                    <a class="github-vcard-stat" target='_blank' 
+                       href="https://github.com/<?php echo $profile->login; ?>/following">
+                        <strong class="github-vcard-stat-count"><?php echo $profile->following; ?></strong>
+                        <span class="text-muted">Following</span>
+                    </a>
+                    <div style="clear: both;"></div>
+                </div>
+            <?php endif; ?>
+
+	    <?php if ( $this->is_checked($config, 'meta_info' )) : ?>
+                <div class="github-block">
+                    <div>
+                        <span class="octicon octicon-repo"></span>
+                        <a href="https://github.com/<?php echo $profile->login; ?>/repositories" target="_blank">
+                            <?php echo $profile->public_repos; ?> Public Repositories
+                        </a>
+
+                            <?php if ( $config['repositories'] == 'on' ): ?>
+                        <input type="checkbox" id="gh-repo-t" class="github-repos-toggle">
+                        <label for="gh-repo-t" class="github-repos-toggle-la octicon octicon-chevron-down"></label>
+
+                        <div class="github-repos">
+                            <?php foreach ($repos as $repo) { ?>
+                                <div class="github-repo-name">
+                                    <a target="_blank" href="<?php echo $repo->html_url; ?>"
+                                       title="<?php echo $repo->full_name; ?>">
+                                        <?php echo $repo->name ?>
+                                    </a>
+                                </div>
+                            <?php } ?>
+                        </div>
+                            <?php endif; ?>
+                    </div>
+                    <div>
+                        <span class="octicon octicon-gist"></span>
+                        <a href="https://gist.github.com/<?php echo $profile->login; ?>" target="_blank">
+                            <?php echo $profile->public_gists; ?> Public Gists
+                        </a>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <?php if ( $this->is_checked($config, 'organizations' )) : ?>
+                <div class="github-block github-organizations">
                 <?php foreach ($organizations as $org) { ?>
                     <a target="_blank" href="https://github.com/<?php echo $org->login; ?>"
                        title="<?php echo $org->login; ?>&#013;<?php echo $org->description; ?>">
                         <img src='<?php echo $org->avatar_url; ?>' class="github-avatarurl" />
                     </a>
                 <?php } ?>
-            </div>
-	        <?php endif; ?>
+                </div>
+            <?php endif; ?>
+            
+            
+            <?php if ( $this->is_checked($config, 'feed' )) : ?>
+                <div class="github-block github-feed">
+                    <?php echo sizeof($feed) ?>
+                </div>
+            <?php endif; ?>
+            
         </div>
     </div>
 </aside>

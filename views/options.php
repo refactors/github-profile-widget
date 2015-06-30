@@ -42,14 +42,14 @@
 <h4>Advanced</h4>
 
 <p>
-	<label for="<?php echo $this->get_field_id( 'cache_time' ); ?>"/>
+	<label for="<?php echo $this->get_field_id( 'cache' ); ?>"/>
 	<input
 		class="widefat"
-		id="<?php echo $this->get_field_id( 'cache_time' ); ?>"
-		name="<?php echo $this->get_field_name( 'cache_time' ); ?>"
+		id="<?php echo $this->get_field_id( 'cache' ); ?>"
+		name="<?php echo $this->get_field_name( 'cache' ); ?>"
 		type="number"
 		placeholder="Cache expiration time in minutes"
-		value="<?php echo $cache_time ?>"/>
+		value="<?php echo $cache ?>"/>
 </p>
 
 <p>

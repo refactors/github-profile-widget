@@ -49,7 +49,14 @@ class GitHub_Profile extends WP_Widget {
 	}
 
 	public function form( $config ) {
-		$config = ! empty( $config ) ? unserialize( $config ) : array();
+		$default = array(
+			"meta_info"           => "on",
+			"followers_following" => "on",
+			"organizations"       => "on",
+			"cache"               => "5"
+		);
+
+		$config = is_array( $config ) ? $default : unserialize( $config );
 
 		foreach ( $config as $key => $value ) {
 			${$key} = esc_attr( $value );
@@ -70,7 +77,7 @@ class GitHub_Profile extends WP_Widget {
 
 		ob_start( "refactors_HTMLCompressor" );
 
-		if ( ! isset( $config['username'] ) ) {
+		if ( empty( $config['username'] ) ) {
 			echo 'You need to first configure the plugin :)';
 		} else {
 			$profile = $this->get_github_api_content( self::API_PATH . "/users/" . $config['username'], $config );

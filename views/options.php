@@ -43,7 +43,7 @@
     Advanced
 </a>
 
-<div class="github-advanced" style="display: none">
+<div class="github-advanced" style="display: none;">
 	<p style="margin-top: 0">
 		<label for="<?php echo $this->get_field_id( 'cache' ); ?>"/>
 		<input class="widefat"

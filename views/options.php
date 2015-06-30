@@ -53,12 +53,7 @@
 		       placeholder="Cache expiration time in minutes"
 		       value="<?php echo $cache ?>"/> minutes of cache
 	</p>
-
-	<p>
-		<small>0 disables cache; less that 5 may create problems because of API limits <strong>unless you provide a
-				token</strong>.
-		</small>
-	</p>
+        <small>0 disables cache; less that 5 may create problems because of API limits<strong>, unless you provide a token</strong>.</small>
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'token' ); ?>"/>

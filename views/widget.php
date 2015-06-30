@@ -137,9 +137,17 @@
 
 
             <?php if ( $this->is_checked($config, 'feed' )) : ?>
-               <?php require_once 'feed.php'; ?>
+                <div class="github-block">
+                    <div>
+                        <span class="octicon octicon-rss"></span>
+                        <a href="https://github.com/<?php echo $profile->login; ?>?tab=activity" target="_blank">
+                            Feed
+                        </a>
+                    </div>
+
+                       <?php require_once 'feed.php'; ?>
+                </div>
             <?php endif; ?>
-         
 
         </div>
     </div>

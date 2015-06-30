@@ -75,12 +75,12 @@
 
             <?php if ( $this->is_checked($config, 'followers_and_following' ) ): ?>
                 <div class="github-block github-vcard-stats">
-                    <a class="github-vcard-stat" target='_blank' 
+                    <a class="github-vcard-stat" target='_blank'
                        href="https://github.com/<?php echo $profile->login; ?>/followers">
                         <strong class="github-vcard-stat-count"><?php echo $profile->followers; ?></strong>
                         <span class="text-muted">Followers</span>
                     </a>
-                    <a class="github-vcard-stat" target='_blank' 
+                    <a class="github-vcard-stat" target='_blank'
                        href="https://github.com/<?php echo $profile->login; ?>/following">
                         <strong class="github-vcard-stat-count"><?php echo $profile->following; ?></strong>
                         <span class="text-muted">Following</span>
@@ -132,14 +132,14 @@
                 <?php } ?>
                 </div>
             <?php endif; ?>
-            
-            
+
+
             <?php if ( $this->is_checked($config, 'feed' )) : ?>
                 <div class="github-block github-feed">
                     <?php echo sizeof($feed) ?>
                 </div>
             <?php endif; ?>
-            
+
         </div>
     </div>
 </aside>

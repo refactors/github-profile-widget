@@ -40,7 +40,8 @@
 <?php endforeach; ?>
 </p>
 
-<a class="github-advanced-title" style="cursor: pointer">Advanced</a>
+<a class="github-advanced-title" style="cursor: pointer"><h4 style="font-weight: normal; text-decoration: underline">
+		Advanced</h4></a>
 
 <div class="github-advanced" style="display: none">
 	<p style="margin-top: 0">

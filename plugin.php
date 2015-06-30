@@ -105,7 +105,7 @@ class GitHub_Profile extends WP_Widget {
 		$timestamp = get_option( $apiPath . 'time' );
 		$now  = round( microtime( true ) );
 
-		if ( ! $file || ! $timestamp || $now - $timestamp > ( $config * 60 ) ) {
+		if ( ! $file || ! $timestamp || $now - $timestamp > ( $config['cache'] * 60 ) ) {
 			$header = "User-Agent: {$config[ 'username' ]}\r\n";
 
 			if ( isset( $config['oAuth'] ) ) {

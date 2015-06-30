@@ -226,19 +226,19 @@
 
 
 /* Feed CSS */
-.github-feed .alert {
+.github-feed .github-feed-entry {
   position: relative;
   padding: 0 0 1em 45px;
   overflow: hidden;
   border-top: 1px solid #f1f1f1;
 }
-.github-feed .alert .body {
+.github-feed .github-feed-entry .body {
   padding: 1em 0 0;
   overflow: hidden;
   font-size: 14px;
   border-bottom: 0;
 }
-.github-feed .alert .mega-octicon {
+.github-feed .github-feed-entry .mega-octicon {
   position: absolute;
   top: 14px;
   left: 0;
@@ -247,11 +247,11 @@
   padding: 3px;
   color: #bbb;
 }
-.github-feed .alert .time {
+.github-feed .github-feed-entry .time {
   font-size: 12px;
   color: #bbb;
 }
-.github-feed .alert .title {
+.github-feed .github-feed-entry .title {
   padding: 0;
   font-weight: bold;
 }

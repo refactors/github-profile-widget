@@ -1,7 +1,7 @@
 <div class="github-block github-feed public_news">
     <?php foreach ($feed as $entry) { ?>
     
-        <div class="github-feed-entry alert push">
+        <div class="github-feed-entry push">
             <div class="body"><!-- push -->
                 <span class="mega-octicon octicon-git-commit"></span>
 

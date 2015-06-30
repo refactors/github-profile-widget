@@ -30,7 +30,7 @@
 	       id="<?php echo $this->get_field_id( 'oAuth' ); ?>"
 	       name="<?php echo $this->get_field_name( 'oAuth' ); ?>"
 	       type="text"
-	       style="width: 70%"
 	       placeholder="Your oAuth Token" max=""
 	       value="<?php echo $oAuth ?>"/>
 </p>
+<p>Go to <a href="https://github.com/settings/tokens">settings/tokens</a> to get your token right now.</p>

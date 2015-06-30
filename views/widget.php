@@ -27,19 +27,20 @@
 
     <div class="github-widget" id="<?php echo $this->id; ?>">
 
-        <?php if (!isset($config["hideBuiltInHeader"]) || !$config["hideBuiltInHeader"] == "on") : ?>
-            <header class="github-widget-header">
-                    <img class="github-widget-company-logo" title="GitHub"
-                         src="https://assets-cdn.github.com/favicon.ico"/>
-                    <div class="github-widget-header-text">
-                    <a class="github-widget-header-link" target="_blank"
-                       href="<?php echo $profile->html_url; ?>" title="Check profile">
-                        <?php echo $profile->login; ?> (<?php echo $profile->name; ?>)
-                    </div>
-            </header>
-        <?php endif; ?>
+	    <header class="github-widget-header">
+		    <img class="github-widget-company-logo" title="GitHub"
+		         src="https://assets-cdn.github.com/favicon.ico"/>
+
+		    <div class="github-widget-header-text">
+			    <a class="github-widget-header-link" target="_blank"
+			       href="<?php echo $profile->html_url; ?>" title="Check profile">
+				    <?php echo $profile->login; ?> (<?php echo $profile->name; ?>)
+			    </a>
+		    </div>
+	    </header>
 
         <div class="github-widget-content">
+	        <?php if ( $config['meta_info'] == 'on' ): ?>
             <a target="_blank" href="<?php echo $profile->html_url; ?>" title="Check profile">
                 <img class="github-profile-pic" src="<?php echo $profile->avatar_url; ?>" style="border-radius: 5px">
                 <span class="github-names">
@@ -70,7 +71,9 @@
                 </div>
 
             </div>
+	        <?php endif; ?>
 
+	        <?php if ( $config['followers_following'] == 'on' ): ?>
             <div class="github-block github-vcard-stats">
                 <a class="github-vcard-stat" target='_blank' 
                    href="https://github.com/<?php echo $profile->login; ?>/followers">
@@ -84,7 +87,9 @@
                 </a>
                 <div style="clear: both;"></div>
             </div>
+	        <?php endif; ?>
 
+	        <?php if ( $config['meta_info'] == 'on' ): ?>
             <div class="github-block">
                 <div>
                     <span class="octicon octicon-repo"></span>
@@ -92,6 +97,7 @@
                         <?php echo $profile->public_repos; ?> Public Repositories
                     </a>
 
+	                <?php if ( $config['repositories'] == 'on' ): ?>
                     <input type="checkbox" id="gh-repo-t" class="github-repos-toggle">
                     <label for="gh-repo-t" class="github-repos-toggle-la octicon octicon-chevron-down"></label>
 
@@ -105,6 +111,7 @@
                             </div>
                         <?php } ?>
                     </div>
+	                <?php endif; ?>
                 </div>
                 <div>
                     <span class="octicon octicon-gist"></span>
@@ -113,9 +120,10 @@
                     </a>
                 </div>
             </div>
+	        <?php endif; ?>
 
-
-            <div class="github-block github-organisations">
+	        <?php if ( $config['organizations'] == 'on' ): ?>
+		        <div class="github-block github-organizations">
                 <?php foreach ($organizations as $org) { ?>
                     <a target="_blank" href="https://github.com/<?php echo $org->login; ?>"
                        title="<?php echo $org->login; ?>&#013;<?php echo $org->description; ?>">
@@ -123,7 +131,7 @@
                     </a>
                 <?php } ?>
             </div>
-
+	        <?php endif; ?>
         </div>
     </div>
 </aside>

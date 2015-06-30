@@ -23,20 +23,13 @@ class GitHub_Profile extends WP_Widget {
 	const API_CACHE_SECONDS = 3600; // 1h
 
 	protected $widget_slug = 'github-profile';
-	protected $options = array(
-		"text"       => array(
-			"title"    => "Title",
-			"username" => "Username",
-			"token"    => "oAuth Token"
-		),
-		"checkboxes" => array(
-			"meta-info"           => "Meta Info",
-			"followers-following" => "Followers and Following",
+	protected $checkboxes = array(
+		"meta_info"           => "Meta Info",
+		"followers_following" => "Followers and Following",
 			"repositories"        => "Repositories",
 			"gists"               => "Gists",
 			"organizations"       => "Organizations",
 			"feed"                => "Feed"
-		)
 	);
 
 

@@ -27,7 +27,7 @@
 <h4>Show:</h4>
 
 <p>
-	<?php foreach ( $this->options["checkboxes"] as $option => $title ): ?>
+	<?php foreach ( $this->checkboxes as $option => $title ): ?>
 		<input class="checkbox" type="checkbox"
 			<?php checked( ${$option}, 'on' ); ?>
 			   id="<?php echo $this->get_field_id( $option ) ?>"
@@ -42,29 +42,22 @@
 <h4>Advanced Settings</h4>
 
 <p>
-	<input class="checkbox" type="checkbox"
-		<?php checked( $cache, 'on' ); ?>
-		   id="<?php echo $this->get_field_id( 'cache' ) ?>"
-		   name="<?php echo $this->get_field_name( 'cache' ) ?>"/>
-	<label for="<?php echo $this->get_field_id( 'cache' ) ?>">
-		<?php echo ucfirst( 'Cache' ) ?>
-	</label>
-</p>
-
-<p style="font-size: 80%; color: gray;">
-	Cache is automatically enabled. If disabled the plugin may stop working after a while because there is an hourly
-	limit of calls to the GitHub's API.
-</p>
-
-<p>
 	<label for="<?php echo $this->get_field_id( 'cache_time' ); ?>"/>
 	<input
 		class="widefat"
 		id="<?php echo $this->get_field_id( 'cache_time' ); ?>"
 		name="<?php echo $this->get_field_name( 'cache_time' ); ?>"
 		type="number"
-		placeholder="Cache Expiration Time in Seconds"
+		placeholder="Cache Expiration Time in Minutes"
 		value="<?php echo $cache_time ?>"/>
+</p>
+
+<p>
+	<small>
+		<strong>Set 0 if you don't want to cache the data.</strong> Cache is automatically enabled. If disabled the
+		plugin may stop working after a while because there is an hourly
+		limit of calls to the GitHub's API.
+	</small>
 </p>
 
 <p>
@@ -77,8 +70,11 @@
 	       value="<?php echo $token ?>"/>
 </p>
 
-<p style="font-size: 80%; color: gray;">
-	<a href="https://github.com/settings/tokens/new" target="_blank">Create token</a>. If you don't set
-	it, the plugin will only be able to do 60 calls per hour to the GitHub API (which usually is not a problem, as the
-	plugin has cache).
+<p>
+	<small>
+		<a href="https://github.com/settings/tokens/new" target="_blank">Create token</a>. If you don't set
+		it, the plugin will only be able to do 60 calls per hour to the GitHub API (which usually is not a problem, as
+		the
+		plugin has cache)
+	</small>
 </p>

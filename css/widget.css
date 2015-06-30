@@ -128,6 +128,10 @@
     border-top: 0;
 }
 
+.github-block:first-child {
+    padding: 0 0 8px 24px;
+}
+
 .github-block {
     display: block;
     padding: 10px 0 8px 24px;
@@ -186,8 +190,8 @@
     transition: all ease-in-out .2s;
 }
 
-.github-organisations {
-    padding: 10px 0 !important;
+.github-organizations {
+    padding: 10px 0 0 !important;
 }
 
 .github-avatarurl {

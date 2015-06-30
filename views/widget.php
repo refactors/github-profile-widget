@@ -29,25 +29,25 @@
 
         <?php if (!isset($config["hideBuiltInHeader"]) || !$config["hideBuiltInHeader"] == "on") : ?>
             <header class="github-widget-header">
-                <img class="github-widget-company-logo" title="GitHub"
-                     src="https://assets-cdn.github.com/favicon.ico"/>
-                <div class="github-widget-header-text">
+                    <img class="github-widget-company-logo" title="GitHub"
+                         src="https://assets-cdn.github.com/favicon.ico"/>
+                    <div class="github-widget-header-text">
                     <a class="github-widget-header-link" target="_blank"
                        href="<?php echo $profile->html_url; ?>" title="Check profile">
                         <?php echo $profile->login; ?> (<?php echo $profile->name; ?>)
-                    </a>
-                </div>
+                    </div>
             </header>
         <?php endif; ?>
 
         <div class="github-widget-content">
-            <img class="github-profile-pic" src="<?php echo $profile->avatar_url; ?>" style="border-radius: 5px">
-            <span class="github-names">
-                <p class="github-name"><?php echo $profile->name; ?></p>
-                <a class="github-username" target="_blank" href="<?php echo $profile->html_url; ?>" title="Check profile">
-                    <?php echo $profile->login; ?>
-                </a>
-            </span>
+            <a class="github-username" target="_blank" href="<?php echo $profile->html_url; ?>" title="Check profile">
+                <img class="github-profile-pic" src="<?php echo $profile->avatar_url; ?>" style="border-radius: 5px">
+                <span class="github-names">
+                    <p class="github-name">
+                        <?php echo $profile->name; ?></p>
+                        <?php echo $profile->login; ?>
+                </span>
+            </a>
 
             <div class="github-block">
                 <?php if (!empty($profile->company)): ?>
@@ -74,18 +74,18 @@
 
             <div class="github-block github-vcard-stats">
                 <a class="github-vcard-stat" target='_blank' 
-				   href="https://github.com/<?php echo $profile->login; ?>/followers">
+                   href="https://github.com/<?php echo $profile->login; ?>/followers">
                     <strong class="github-vcard-stat-count"><?php echo $profile->followers; ?></strong>
                     <span class="text-muted">Followers</span>
                 </a>
                 <a class="github-vcard-stat" target='_blank' 
-				   href="https://github.com/<?php echo $profile->login; ?>/following">
+                   href="https://github.com/<?php echo $profile->login; ?>/following">
                     <strong class="github-vcard-stat-count"><?php echo $profile->following; ?></strong>
                     <span class="text-muted">Following</span>
                 </a>
                 <div style="clear: both;"></div>
             </div>
-            
+
             <div class="github-block">
                 <div>
                     <span class="octicon octicon-repo"></span>
@@ -93,19 +93,19 @@
                         <?php echo $profile->public_repos; ?> Public Repositories
                     </a>
 
-	                <input type="checkbox" id="gh-repo-t" class="github-repos-toggle">
-	                <label for="gh-repo-t" class="github-repos-toggle-la octicon octicon-chevron-down"></label>
+                    <input type="checkbox" id="gh-repo-t" class="github-repos-toggle">
+                    <label for="gh-repo-t" class="github-repos-toggle-la octicon octicon-chevron-down"></label>
 
-	                <div class="github-repos">
-		                <?php foreach ($repos as $repo) { ?>
-                                    <div class="github-repo-name">
-                                        <a target="_blank" href="<?php echo $repo->html_url; ?>"
-                                           title="<?php echo $repo->full_name; ?>">
-                                            <?php echo $repo->name ?>
-                                        </a>
-                                    </div>
-                                <?php } ?>
-	                </div>
+                    <div class="github-repos">
+                        <?php foreach ($repos as $repo) { ?>
+                            <div class="github-repo-name">
+                                <a target="_blank" href="<?php echo $repo->html_url; ?>"
+                                   title="<?php echo $repo->full_name; ?>">
+                                    <?php echo $repo->name ?>
+                                </a>
+                            </div>
+                        <?php } ?>
+                    </div>
                 </div>
                 <div>
                     <span class="octicon octicon-gist"></span>
@@ -116,12 +116,12 @@
             </div>
 
 
-	        <div class="github-block github-organisations">
+            <div class="github-block github-organisations">
                 <?php foreach ($organizations as $org) { ?>
-	                <a target="_blank" href="https://github.com/<?php echo $org->login; ?>"
-	                   title="<?php echo $org->description; ?>">
-		                <img src='<?php echo $org->avatar_url; ?>' class="github-avatarurl"/>
-	                </a>
+                    <a target="_blank" href="https://github.com/<?php echo $org->login; ?>"
+                       title="<?php echo $org->description; ?>">
+                        <img src='<?php echo $org->avatar_url; ?>' class="github-avatarurl" />
+                    </a>
                 <?php } ?>
             </div>
 

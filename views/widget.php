@@ -124,7 +124,7 @@
                 </div>
             <?php endif; ?>
 
-            <?php if ( $this->is_checked($config, 'organizations' )) : ?>
+            <?php if ( $this->is_checked($config, 'organizations' ) && !empty($organizations) ) : ?>
                 <div class="github-block github-organizations">
                 <?php foreach ($organizations as $org) { ?>
                     <a target="_blank" href="https://github.com/<?php echo $org->login; ?>"
@@ -138,9 +138,16 @@
 
             <?php if ( $this->is_checked($config, 'feed' )) : ?>
                 <div class="github-block github-feed">
-                    <?php echo sizeof($feed) ?>
+                    <?php foreach ($feed as $entry) { ?>
+                       <div class="github-feed-entry">
+                           <a target="_blank" href="https://github.com/<?php echo $entry->actor->login; ?>">
+                                <?php echo $entry->actor->login; ?>
+                          </a>
+                        </div>
+                     <?php } ?>
                 </div>
             <?php endif; ?>
+         
 
         </div>
     </div>

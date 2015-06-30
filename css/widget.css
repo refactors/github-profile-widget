@@ -181,8 +181,7 @@
 .github-repos {
     max-height: 0px;
     overflow-x: hidden;
-    overflow-y: scroll;
-
+    overflow-y: auto;
     -webkit-transition: all ease-in-out .2s;
     -moz-transition: all ease-in-out .2s;
     -ms-transition: all ease-in-out .2s;
@@ -193,6 +192,10 @@
 .github-organizations,
 .github-feed {
     padding: 10px 0 !important;
+}
+
+.github-feed .github-feed-entry {
+    font-size: 80%;
 }
 
 .github-avatarurl {

@@ -113,9 +113,9 @@ class GitHub_Profile extends WP_Widget
     {
         $file = get_option($apiPath); // $apiPath is auto sanitized
         $timestamp = get_option($apiPath . 'time');
-		$timeDiff = microtime(true) - $timestamp + rand(-4, 4); // 9 random results prevents simultaneous expiring
+		$fileCacheAge = microtime(true) - $timestamp + rand(-4, 4); // 9 random results prevents simultaneous expiring
 
-		if (!$file || !$timestamp || $timeDiff > $config['cache'] * 60) {
+		if (!$file || !$timestamp || $fileCacheAge > $config['cache'] * 60) {
             $context = stream_context_create(array(
                 'http' => array(
                     'method' => "GET",

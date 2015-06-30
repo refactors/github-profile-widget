@@ -31,9 +31,9 @@
         <input class="checkbox" type="checkbox"
     <?php checked(${$option}, 'on'); ?>
                id="<?php echo $this->get_field_id($option) ?>"
-               name="<?php echo $this->get_field_name($option) ?>"/>
+               name="<?php echo $this->get_field_name($option) ?>" />
         <label for="<?php echo $this->get_field_id($option) ?>">
-    <?php echo ucfirst(str_replace('_', ' ', ucfirst($option))) ?>
+             <?php echo ucfirst(str_replace('_', ' ', ucfirst($option))) ?>
         </label>
         <br />
 <?php endforeach; ?>

@@ -73,7 +73,7 @@
             </div>
 	        <?php endif; ?>
 
-	        <?php if ( $config['followers_following'] == 'on' ): ?>
+	        <?php if ( $config['followers_and_following'] == 'on' ): ?>
             <div class="github-block github-vcard-stats">
                 <a class="github-vcard-stat" target='_blank' 
                    href="https://github.com/<?php echo $profile->login; ?>/followers">

@@ -27,13 +27,13 @@
 <h4>Show:</h4>
 
 <p>
-	<?php foreach ( $this->checkboxes as $option => $title ): ?>
+	<?php foreach ( $this->checkboxes as $option ): ?>
 		<input class="checkbox" type="checkbox"
 			<?php checked( ${$option}, 'on' ); ?>
 			   id="<?php echo $this->get_field_id( $option ) ?>"
 			   name="<?php echo $this->get_field_name( $option ) ?>"/>
 		<label for="<?php echo $this->get_field_id( $option ) ?>">
-			<?php echo ucfirst( $title ) ?>
+			<?php echo ucfirst( str_replace( '_', ' ', ucfirst( $option ) ) ) ?>
 		</label>
 		<br>
 	<?php endforeach; ?>

@@ -24,12 +24,12 @@ class GitHub_Profile extends WP_Widget {
 
 	protected $widget_slug = 'github-profile';
 	protected $checkboxes = array(
-		"meta_info"           => "Meta Info",
-		"followers_following" => "Followers and Following",
-		"repositories"  => "Repositories",
-		"gists"         => "Gists",
-		"organizations" => "Organizations",
-		"feed"          => "Feed"
+		"meta_info",
+		"followers_and_following",
+		"repositories",
+		"gists",
+		"organizations",
+		"feed"
 	);
 
 

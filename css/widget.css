@@ -259,7 +259,7 @@
   margin-top: 0.15em;
   list-style-type: none;
 }
-.github-feed .code {
+.github-feed code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 12px;
 }

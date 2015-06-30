@@ -87,9 +87,8 @@ class GitHub_Profile extends WP_Widget {
 
 	private function get_github_api_content( $apiPath )
 	{
-		$cacheKeyTimestampKey = $apiPath . 'Timestamp';
 		$file = get_option( $apiPath ); // $apiPath is auto sanitized
-		$timestamp = get_option( $cacheKeyTimestampKey );
+		$timestamp = get_option( $apiPath . 'time' );
 		$now = round( microtime( true ) );
 
 		if ( !$file || !$timestamp || $now - $timestamp > self::API_CACHE_SECONDS ) {
@@ -101,7 +100,7 @@ class GitHub_Profile extends WP_Widget {
 			) );
 			$file = file_get_contents( $apiPath, false, $context );
 			update_option( $apiPath, $file );
-			update_option( $cacheKeyTimestampKey, $now );
+			update_option( $apiPath . 'time', $now );
 		}
 		return json_decode( $file );
 	}

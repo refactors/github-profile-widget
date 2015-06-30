@@ -24,7 +24,7 @@
     <?php if (isset($config["title"])) : ?>
         <?php echo $before_title . $config["title"] . $after_title; ?>
     <?php endif; ?>
-	
+
     <div class="github-widget" id="<?php echo $this->id; ?>">
 
         <?php if (!isset($config["hideBuiltInHeader"]) || !$config["hideBuiltInHeader"] == "on") : ?>
@@ -32,7 +32,7 @@
                 <img class="github-widget-company-logo" title="GitHub"
                      src="https://assets-cdn.github.com/favicon.ico"/>
                 <div class="github-widget-header-text">
-                    <a class="github-widget-header-link" target="_blank" 
+                    <a class="github-widget-header-link" target="_blank"
                        href="<?php echo $profile->html_url; ?>" title="Check profile">
                         <?php echo $profile->login; ?> (<?php echo $profile->name; ?>)
                     </a>
@@ -69,9 +69,9 @@
                     <span class="octicon octicon-clock"></span>
                     Joined on <?php echo $profile->created_at->format('M d, Y'); ?>
                 </div>
-           
-            </div>            
-             
+
+            </div>
+
             <div class="github-block github-vcard-stats">
                 <a class="github-vcard-stat" href="https://github.com/<?php echo $profile->login; ?>/followers">
                     <strong class="github-vcard-stat-count"><?php echo $profile->followers; ?></strong>
@@ -81,9 +81,9 @@
                     <strong class="github-vcard-stat-count"><?php echo $profile->following; ?></strong>
                     <span class="text-muted">Following</span>
                 </a>
+                <div style="clear: both;"></div>
             </div>
-            <div style="clear: both;"></div>
-
+            
             <div class="github-block">
                 <div>
                     <span class="octicon octicon-repo"></span>
@@ -112,9 +112,9 @@
                     </a>
                 </div>
             </div>
-            
-            
-            <div class="github-block">     
+
+
+            <div class="github-block">
                 <?php foreach ($organizations as $org) { ?>
                     <div>
                         <a target="_blank" href="https://github.com/<?php echo $org->login; ?>"

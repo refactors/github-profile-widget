@@ -105,7 +105,7 @@ class GitHub_Profile extends WP_Widget {
 	private function get_github_api_content( $apiPath, $config ) {
 		$file = get_option( $apiPath ); // $apiPath is auto sanitized
 		$timestamp = get_option( $apiPath . 'time' );
-		$now  = round( microtime( true ) );
+		$now = round( microtime( true ) );
 
 		if ( ! $file || ! $timestamp || $now - $timestamp > ( $config['cache'] * 60 ) ) {
 			$header = "User-Agent: {$config[ 'username' ]}\r\n";

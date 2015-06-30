@@ -9,6 +9,11 @@
     color: #333;
 }
 
+.github-widget a {
+    outline: 0;
+}
+
+
 .github-widget,
 .github-widget p,
 .github-widget a,
@@ -186,8 +191,8 @@
 }
 
 .github-avatarurl {
-    max-width: 42px;
-    border-radius: 2px;
+    max-width: 36px;
+    border-radius: 3px;
 }
 
 .github-vcard-stats {

@@ -86,13 +86,13 @@ class GitHub_Profile extends WP_Widget {
 			$profile = $this->get_github_api_content( self::API_PATH . "/users/" . $config['username'], $config );
 			$profile->created_at = new DateTime( $profile->created_at );
 
-			if ( is_checked ($config, 'repositories' )) {
+			if ( $this->is_checked ($config, 'repositories' )) {
                             $repos = $this->get_github_api_content( $profile->repos_url, $config );
 			}
-			if ( is_checked ($config, 'organizations' )) {
+			if ( $this->is_checked ($config, 'organizations' )) {
                             $organizations = $this->get_github_api_content( $profile->organizations_url, $config );
 			}
-			if ( is_checked ($config, 'feed' )) {
+			if ( $this->is_checked ($config, 'feed' )) {
                             $profile->events_url = str_replace('{/privacy}', '/public', $profile->events_url);
                             $feed = $this->get_github_api_content( $profile->events_url, $config );
                             echo $feed;

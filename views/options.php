@@ -48,7 +48,7 @@
 		id="<?php echo $this->get_field_id( 'cache_time' ); ?>"
 		name="<?php echo $this->get_field_name( 'cache_time' ); ?>"
 		type="number"
-		placeholder="Cache Expiration Time in Minutes"
+		placeholder="Cache expiration time in minutes"
 		value="<?php echo $cache_time ?>"/>
 </p>
 

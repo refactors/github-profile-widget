@@ -40,12 +40,11 @@
         <?php endif; ?>
 
         <div class="github-widget-content">
-            <a class="github-username" target="_blank" href="<?php echo $profile->html_url; ?>" title="Check profile">
+            <a target="_blank" href="<?php echo $profile->html_url; ?>" title="Check profile">
                 <img class="github-profile-pic" src="<?php echo $profile->avatar_url; ?>" style="border-radius: 5px">
                 <span class="github-names">
-                    <p class="github-name">
-                        <?php echo $profile->name; ?></p>
-                        <?php echo $profile->login; ?>
+                    <p class="github-name"><?php echo $profile->name; ?></p>
+                    <span class="github-username"><?php echo $profile->login; ?></span>
                 </span>
             </a>
 

@@ -81,7 +81,7 @@ class GitHub_Profile extends WP_Widget {
 		ob_start( "refactors_HTMLCompressor" );
 
 		if ( empty( $config['username'] ) ) {
-			echo 'You need to first configure the plugin :)';
+			echo 'Please configure the plgin first';
 		} else {
 			$profile = $this->get_github_api_content( self::API_PATH . "/users/" . $config['username'], $config );
 			$profile->created_at = new DateTime( $profile->created_at );

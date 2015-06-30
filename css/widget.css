@@ -175,7 +175,7 @@
 }
 
 .github-repos-toggle:checked ~ .github-repos {
-    max-height: 150px;
+    max-height: 200px;
 }
 
 .github-repos {

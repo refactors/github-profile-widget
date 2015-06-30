@@ -137,15 +137,7 @@
 
 
             <?php if ( $this->is_checked($config, 'feed' )) : ?>
-                <div class="github-block github-feed">
-                    <?php foreach ($feed as $entry) { ?>
-                       <div class="github-feed-entry">
-                           <a target="_blank" href="https://github.com/<?php echo $entry->actor->login; ?>">
-                                <?php echo $entry->actor->login; ?>
-                          </a>
-                        </div>
-                     <?php } ?>
-                </div>
+               <?php require_once 'feed.php'; ?>
             <?php endif; ?>
          
 

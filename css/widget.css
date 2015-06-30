@@ -222,3 +222,36 @@
     font-size: 11px;
     text-transform: capitalize;
 }
+
+
+
+/* Feed CSS */
+.github-feed .alert {
+  position: relative;
+  padding: 0 0 1em 45px;
+  overflow: hidden;
+  border-top: 1px solid #f1f1f1;
+}
+.github-feed .alert .body {
+  padding: 1em 0 0;
+  overflow: hidden;
+  font-size: 14px;
+  border-bottom: 0;
+}
+.github-feed .alert .mega-octicon {
+  position: absolute;
+  top: 14px;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  padding: 3px;
+  color: #bbb;
+}
+.github-feed .alert .time {
+  font-size: 12px;
+  color: #bbb;
+}
+.github-feed .alert .title {
+  padding: 0;
+  font-weight: bold;
+}

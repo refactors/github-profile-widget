@@ -9,6 +9,7 @@
  * Network: true
  * License: GPL2 or later
  */
+
 // prevent direct file access
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -23,33 +24,41 @@ class GitHub_Profile extends WP_Widget {
 
 	protected $widget_slug = 'github-profile';
 	protected $options = array(
-		"title",
-		"username",
-		"oAuth"
+		"text"       => array(
+			"title"    => "Title",
+			"username" => "Username",
+			"token"    => "oAuth Token"
+		),
+		"checkboxes" => array(
+			"meta-info"           => "Meta Info",
+			"followers-following" => "Followers and Following",
+			"repositories"        => "Repositories",
+			"gists"               => "Gists",
+			"organizations"       => "Organizations",
+			"feed"                => "Feed"
+		)
 	);
-	protected $config;
-	protected $optionsShow = array();
+
 
 	public function __construct() {
 		parent::__construct(
-			$this->get_widget_slug(), 'GitHub Profile', $this->get_widget_slug(), array(
-				'classname'   => $this->get_widget_slug() . '-class',
+			$this->widget_slug,
+			'GitHub Profile',
+			$this->widget_slug,
+			array(
+				'classname' => $this->widget_slug . '-class',
 				'description' => 'A widget to show a small version of your GitHub profile',
-				$this->get_widget_slug()
+				$this->widget_slug
 			)
 		);
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_widget_styles' ) );
 	}
 
-	public function get_widget_slug() {
-		return $this->widget_slug;
-	}
-
 	public function form( $config ) {
 		$config = ! empty( $config ) ? unserialize( $config ) : array();
 
-		foreach ( $config as $key => $value ) { // recover options
+		foreach ( $config as $key => $value ) {
 			${$key} = esc_attr( $value );
 		}
 
@@ -85,9 +94,10 @@ class GitHub_Profile extends WP_Widget {
 		$file = get_option( $apiPath ); // $apiPath is auto sanitized
 		$timestamp = get_option( $apiPath . 'time' );
 		$now  = round( microtime( true ) );
-		
+
 		if ( ! $file || ! $timestamp || $now - $timestamp > self::API_CACHE_SECONDS ) {
 			$header = "User-Agent: {$config[ 'username' ]}\r\n";
+
 			if ( isset( $config['oAuth'] ) ) {
 				$header = "Authorization: token {$config[ 'oAuth' ]}\r\n" . $header;
 			}
@@ -98,7 +108,9 @@ class GitHub_Profile extends WP_Widget {
 					'header' => $header
 				)
 			) );
-			$file    = file_get_contents( $apiPath, false, $context );
+
+			$file = file_get_contents( $apiPath, false, $context );
+
 			update_option( $apiPath, $file );
 			update_option( $apiPath . 'time', $now );
 		}
@@ -106,13 +118,13 @@ class GitHub_Profile extends WP_Widget {
 		return json_decode( $file );
 	}
 
-	public function isChecked( $conf, $name ) {
+	public function is_checked( $conf, $name ) {
 		return isset( $conf[ $name ] ) && $conf[ $name ] == 'on';
 	}
 
 	public function register_widget_styles() {
-		wp_enqueue_style( $this->get_widget_slug() . '-widget-styles', plugins_url( 'css/widget.css', __FILE__ ) );
-		wp_enqueue_style( $this->get_widget_slug() . '-octicons', plugins_url( 'css/octicons/octicons.css', __FILE__ ) );
+		wp_enqueue_style( $this->widget_slug . '-widget-styles', plugins_url( 'css/widget.css', __FILE__ ) );
+		wp_enqueue_style( $this->widget_slug . '-octicons', plugins_url( 'css/octicons/octicons.css', __FILE__ ) );
 	}
 
 }

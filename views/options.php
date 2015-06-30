@@ -33,4 +33,5 @@
 	       placeholder="Your oAuth Token" max=""
 	       value="<?php echo $oAuth ?>"/>
 </p>
-<p>Go to <a href="https://github.com/settings/tokens">settings/tokens</a> to get your token right now.</p>
+<p>Go to <a href="https://github.com/settings/tokens">settings/tokens</a> to get your token right now. If you don't set
+	it, the plugin will only be able to do 60 calls per hour to the GitHub API.</p>

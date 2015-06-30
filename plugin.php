@@ -32,9 +32,10 @@ class GitHub_Profile extends WP_Widget {
 
 	public function __construct() {
 		parent::__construct(
-			$this->get_widget_slug(), __( 'GitHub Profile', $this->get_widget_slug() ), array(
+			$this->get_widget_slug(), 'GitHub Profile', $this->get_widget_slug(), array(
 				'classname'   => $this->get_widget_slug() . '-class',
-				'description' => __( 'A widget to show a small version of your GitHub profile', $this->get_widget_slug() )
+				'description' => 'A widget to show a small version of your GitHub profile',
+				$this->get_widget_slug()
 			)
 		);
 
@@ -86,10 +87,15 @@ class GitHub_Profile extends WP_Widget {
 		$now  = round( microtime( true ) );
 
 		if ( ! $file || ! $timestamp || $now - $timestamp > self::API_CACHE_SECONDS ) {
+			$header = "User-Agent: {$config[ 'username' ]}\r\n";
+			if ( isset( $config['oAuth'] ) ) {
+				$header = "Authorization: token {$config[ 'oAuth' ]}\r\n" . $header;
+			}
+
 			$context = stream_context_create( array(
 				'http' => array(
 					'method' => "GET",
-					'header' => "Authorization: token {$config[ 'oAuth' ]}\r\nUser-Agent: {$config[ 'username' ]}\r\n"
+					'header' => $header
 				)
 			) );
 			$file    = file_get_contents( $apiPath, false, $context );

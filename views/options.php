@@ -40,34 +40,39 @@
 <?php endforeach; ?>
 </p>
 
-<h4>Advanced</h4>
+<h4 class="github-advanced-title">Advanced</h4>
 
-<p>
-    <label for="<?php echo $this->get_field_id('cache'); ?>" />
-    <input class="widefat"
-           id="<?php echo $this->get_field_id('cache'); ?>"
-           name="<?php echo $this->get_field_name('cache'); ?>"
-           type="number" style="width: 50px;"
-           placeholder="Cache expiration time in minutes"
-           value="<?php echo $cache ?>"/> minutes of cache
-</p>
+<div class="github-advanced" style="display: none">
+	<p>
+		<label for="<?php echo $this->get_field_id( 'cache' ); ?>"/>
+		<input class="widefat"
+		       id="<?php echo $this->get_field_id( 'cache' ); ?>"
+		       name="<?php echo $this->get_field_name( 'cache' ); ?>"
+		       type="number" style="width: 50px;"
+		       placeholder="Cache expiration time in minutes"
+		       value="<?php echo $cache ?>"/> minutes of cache
+	</p>
 
-<p>
-    <small>0 disables cache; If disabled the plugin may stop working after a while because of API limits.</small>
-</p>
+	<p>
+		<small>0 disables cache; If disabled the plugin may stop working after a while because of API limits.</small>
+	</p>
 
-<p>
-    <label for="<?php echo $this->get_field_id('token'); ?>"/>
-    <input class="widefat"
-           id="<?php echo $this->get_field_id('token'); ?>"
-           name="<?php echo $this->get_field_name('token'); ?>"
-           type="text" style="width: 70%"
-           placeholder="oAuth token" max=""
-           value="<?php echo $token ?>" />
-    <a href="https://github.com/settings/tokens/new" target="_blank"><small>Create token</small></a>
-</p>
+	<p>
+		<label for="<?php echo $this->get_field_id( 'token' ); ?>"/>
+		<input class="widefat"
+		       id="<?php echo $this->get_field_id( 'token' ); ?>"
+		       name="<?php echo $this->get_field_name( 'token' ); ?>"
+		       type="text" style="width: 70%"
+		       placeholder="oAuth token" max=""
+		       value="<?php echo $token ?>"/>
+		<a href="https://github.com/settings/tokens/new" target="_blank">
+			<small>Create token</small>
+		</a>
+	</p>
 
-<p>
-    <small>If you don't set it, the plugin will only be able to do 60 calls per hour to the GitHub API (not a problem, if the cache is at least 5 minutes).
-    </small>
-</p>
+	<p>
+		<small>If you don't set it, the plugin will only be able to do 60 calls per hour to the GitHub API (not a
+			problem, if the cache is at least 5 minutes).
+		</small>
+	</p>
+</div>

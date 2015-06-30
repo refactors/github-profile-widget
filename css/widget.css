@@ -232,6 +232,9 @@
   overflow: hidden;
   border-top: 1px solid #f1f1f1;
 }
+.github-feed .github-feed-entry:first-of-type {
+    border: none;
+}
 .github-feed .github-feed-entry .body {
   padding: 1em 0 0;
   overflow: hidden;

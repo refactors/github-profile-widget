@@ -40,7 +40,7 @@
 	    </header>
 
         <div class="github-widget-content">
-	        <?php if ( $config['meta_info'] == 'on' ): ?>
+	        <?php if ( $this->is_checked($config, 'meta_info' ): ?>
             <a target="_blank" href="<?php echo $profile->html_url; ?>" title="Check profile">
                 <img class="github-profile-pic" src="<?php echo $profile->avatar_url; ?>" style="border-radius: 5px">
                 <span class="github-names">
@@ -73,7 +73,7 @@
             </div>
 	        <?php endif; ?>
 
-	        <?php if ( $config['followers_and_following'] == 'on' ): ?>
+            <?php if ( $this->is_checked($config, 'followers_and_following' ): ?>
             <div class="github-block github-vcard-stats">
                 <a class="github-vcard-stat" target='_blank' 
                    href="https://github.com/<?php echo $profile->login; ?>/followers">
@@ -89,7 +89,7 @@
             </div>
 	        <?php endif; ?>
 
-	        <?php if ( $config['meta_info'] == 'on' ): ?>
+	    <?php if ( $this->is_checked($config, 'meta_info' ): ?>
             <div class="github-block">
                 <div>
                     <span class="octicon octicon-repo"></span>
@@ -122,7 +122,7 @@
             </div>
 	        <?php endif; ?>
 
-	        <?php if ( $config['organizations'] == 'on' ): ?>
+	        <?php if ( $this->is_checked($config, 'organizations' ): ?>
 		        <div class="github-block github-organizations">
                 <?php foreach ($organizations as $org) { ?>
                     <a target="_blank" href="https://github.com/<?php echo $org->login; ?>"

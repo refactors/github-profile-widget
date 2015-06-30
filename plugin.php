@@ -86,14 +86,17 @@ class GitHub_Profile extends WP_Widget {
 			$profile = $this->get_github_api_content( self::API_PATH . "/users/" . $config['username'], $config );
 			$profile->created_at = new DateTime( $profile->created_at );
 
-			if ( $config['repositories'] == 'on' ) {
-				$repos = $this->get_github_api_content( $profile->repos_url, $config );
+			if ( is_checked ($config, 'repositories' )) {
+                            $repos = $this->get_github_api_content( $profile->repos_url, $config );
 			}
-
-			if ( $config['organizations'] == 'on' ) {
-				$organizations = $this->get_github_api_content( $profile->organizations_url, $config );
+			if ( is_checked ($config, 'organizations' )) {
+                            $organizations = $this->get_github_api_content( $profile->organizations_url, $config );
 			}
-
+			if ( is_checked ($config, 'feed' )) {
+                            $profile->events_url = str_replace('{/privacy}', '/public', $profile->events_url);
+                            $feed = $this->get_github_api_content( $profile->events_url, $config );
+                            echo $feed;
+			}
 			require 'views/widget.php';
 		}
 
@@ -131,7 +134,7 @@ class GitHub_Profile extends WP_Widget {
 	public function is_checked( $conf, $name ) {
 		return isset( $conf[ $name ] ) && $conf[ $name ] == 'on';
 	}
-
+        
 	public function register_widget_styles() {
 		wp_enqueue_style( $this->widget_slug . '-octicons', plugins_url( 'css/octicons/octicons.css', __FILE__ ) );
 		wp_enqueue_style( $this->widget_slug . '-widget-styles', plugins_url( 'css/widget.css', __FILE__ ) );

@@ -44,6 +44,10 @@ class GitHub_Profile extends WP_Widget {
 			)
 		);
 
+		// Register admin scripts
+		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
+
+		// Register widget styles
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_widget_styles' ) );
 	}
 
@@ -101,7 +105,7 @@ class GitHub_Profile extends WP_Widget {
 		$timestamp = get_option( $apiPath . 'time' );
 		$now  = round( microtime( true ) );
 
-		if ( ! $file || ! $timestamp || $now - $timestamp > self::API_CACHE_SECONDS ) {
+		if ( ! $file || ! $timestamp || $now - $timestamp > ( $config * 60 ) ) {
 			$header = "User-Agent: {$config[ 'username' ]}\r\n";
 
 			if ( isset( $config['oAuth'] ) ) {
@@ -129,10 +133,13 @@ class GitHub_Profile extends WP_Widget {
 	}
 
 	public function register_widget_styles() {
-		wp_enqueue_style( $this->widget_slug . '-widget-styles', plugins_url( 'css/widget.css', __FILE__ ) );
 		wp_enqueue_style( $this->widget_slug . '-octicons', plugins_url( 'css/octicons/octicons.css', __FILE__ ) );
+		wp_enqueue_style( $this->widget_slug . '-widget-styles', plugins_url( 'css/widget.css', __FILE__ ) );
 	}
 
+	public function register_admin_scripts() {
+		wp_enqueue_script( $this->widget_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array( 'jquery' ) );
+	}
 }
 
 add_action( 'widgets_init', create_function( '', 'return register_widget("GitHub_Profile");' ) );

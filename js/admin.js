@@ -1,5 +1,5 @@
 jQuery(document).ready(function () {
     jQuery(".github-advanced-title").click(function () {
-        jQuery(".github-advanced").slideToggle(500);
+        jQuery(".github-advanced").stop().slideToggle(500);
     });
 });

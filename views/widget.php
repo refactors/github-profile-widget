@@ -136,17 +136,15 @@
             <?php endif; ?>
 
 
-            <?php if ( $this->is_checked($config, 'feed' )) : ?>
-                <div class="github-block github-feed">                    
-                    <div>
-                        <span class="octicon octicon-rss"></span>
-                        <a href="https://github.com/<?php echo $profile->login; ?>?tab=activity" target="_blank">
-                            Feed
-                        </a>
-                    </div>
+            <?php /*if ( $this->is_checked($config, 'feed' )) : ?>
+                <div class="github-block github-feed">
+                    <span class="octicon octicon-rss"></span>
+                    <a href="https://github.com/<?php echo $profile->login; ?>?tab=activity" target="_blank">
+                        Feed
+                    </a>
                     <?php require_once 'feed.php'; ?>
                 </div>
-            <?php endif; ?>
+            <?php endif; */ ?>
 
         </div>
     </div>

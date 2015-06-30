@@ -13,7 +13,6 @@
     outline: 0;
 }
 
-
 .github-widget,
 .github-widget p,
 .github-widget a,
@@ -185,12 +184,13 @@
     -o-transition: all ease-in-out .2s;
     transition: all ease-in-out .2s;
 }
+
 .github-repos:hover {
-    overflow-y: auto;    
+    overflow-y: auto;
 }
 
 .github-organizations,
-.github-feed {
+.github-feed-content {
     padding: 10px 0 !important;
 }
 
@@ -222,69 +222,77 @@
     text-transform: capitalize;
 }
 
-
-
-/* Feed CSS */
+/* Feed CSS
 .github-feed .github-feed-entry {
-  position: relative;
-  padding: 0 0 0.2em 45px;
-  overflow: hidden;
-  border-top: 1px solid #f1f1f1;
+    margin-left: -24px;
+    padding: 1em 0 1em 45px;
+    overflow: hidden;
+    border-top: 1px solid #f1f1f1;
 }
+
 .github-feed .github-feed-entry:first-of-type {
     border-top: none;
 }
+
 .github-feed .github-feed-entry .body {
-  padding: 0.8em 0 0;
-  overflow: hidden;
-  font-size: 14px;
-  border-bottom: 0;
+    padding: 0.8em 0 0;
+    overflow: hidden;
+    font-size: 14px;
+    border-bottom: 0;
 }
+
 .github-feed .github-feed-entry .mega-octicon {
-  position: absolute;
-  top: 14px;
-  left: 0;
-  width: 32px;
-  height: 32px;
-  padding: 3px;
-  color: #bbb;
+    position: absolute;
+    top: 14px;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    padding: 3px;
+    color: #bbb;
 }
+
 .github-feed-entry .time {
-  font-size: 12px;
-  color: #bbb;
+    font-size: 12px;
+    color: #bbb;
 }
+
 .github-feed-entry .title {
-  padding: 0;
-  font-weight: bold;
+    padding: 0;
+    font-weight: bold;
 }
+
 .github-feed-entry .commits li {
-  margin-top: 0.15em;
-  list-style-type: none;
+    margin-top: 0.15em;
+    list-style-type: none;
 }
+
 .github-feed-entry code {
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 12px;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
 }
+
 .github-feed-entry .commits li .message {
-  display: inline-block;
-  max-width: 390px;
-  margin-top: 2px;
-  overflow: hidden;
-  font-size: 13px;
-  line-height: 1.3;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  vertical-align: top;
+    display: inline-block;
+    max-width: 390px;
+    margin-top: 2px;
+    overflow: hidden;
+    font-size: 13px;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
 }
+
 .github-feed-entry li blockquote {
-  display: inline;
-  font-size: 13px;
-  color: #666;
+    display: inline;
+    font-size: 13px;
+    color: #666;
 }
+
 .github-feed-entry .gravatar {
-  float: left;
-  margin-right: 0.6em;
-  line-height: 0;
-  background-color: #fff;
-  border-radius: 3px;
-}
+    float: left;
+    margin-right: 0.6em;
+    line-height: 0;
+    background-color: #fff;
+    border-radius: 3px;
+} */

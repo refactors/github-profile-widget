@@ -117,8 +117,8 @@ class GitHub_Profile extends WP_Widget
 
 		if (!$file || !$timestamp || $timeDiff > $config['cache'] * 60) {
             $headers = "User-Agent: {$config[ 'username' ]}\r\n";
-            if (isset($config['oAuth'])) {
-                $headers = "Authorization: token {$config[ 'oAuth' ]}\r\n" . $headers;
+            if (isset($config['token'])) {
+                $headers = "Authorization: token {$config[ 'token' ]}\r\n" . $headers;
             }
             $context = stream_context_create(array(
                 'http' => array(
@@ -126,6 +126,7 @@ class GitHub_Profile extends WP_Widget
                     'header' => $headers
                 )
             ));
+			echo $headers;
             $file = file_get_contents($apiPath, false, $context);
             update_option($apiPath, $file);
             update_option($apiPath . 'time', microtime(true));

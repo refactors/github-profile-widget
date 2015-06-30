@@ -44,27 +44,27 @@
 </a>
 
 <div class="github-advanced" style="display: none;">
-	<p style="margin-top: 0">
-		<label for="<?php echo $this->get_field_id( 'cache' ); ?>"/>
-		<input class="widefat"
-		       id="<?php echo $this->get_field_id( 'cache' ); ?>"
-		       name="<?php echo $this->get_field_name( 'cache' ); ?>"
-		       type="number" style="width: 50px;"
-		       placeholder="Cache expiration time in minutes"
-		       value="<?php echo $cache ?>"/> minutes of cache
-	</p>
-        <small>0 disables cache; less that 5 may create problems because of API limits<strong>, unless you provide a token</strong>.</small>
+    <p style="margin-top: 0">
+        <label for="<?php echo $this->get_field_id( 'cache' ); ?>"/>
+        <input class="widefat" title="Value 0 disables cache"
+               id="<?php echo $this->get_field_id( 'cache' ); ?>"
+               name="<?php echo $this->get_field_name( 'cache' ); ?>"
+               type="number" style="width: 50px;"
+               placeholder="Cache expiration time in minutes"
+               value="<?php echo $cache ?>"/> minutes of cache
+    </p>
+    <small>Less than 5 min. may hit API limits, unless a token is provided.</small>
 
-	<p>
-		<label for="<?php echo $this->get_field_id( 'token' ); ?>"/>
-		<input class="widefat"
-		       id="<?php echo $this->get_field_id( 'token' ); ?>"
-		       name="<?php echo $this->get_field_name( 'token' ); ?>"
-		       type="text" style="width: 75%"
-		       placeholder="oAuth token" max=""
-		       value="<?php echo $token ?>"/>
-                <a href="https://github.com/settings/tokens/new" target="_blank" style="margin-left: 4px;">
-			<small>Create token</small>
-		</a>
-	</p>
+    <p>
+        <label for="<?php echo $this->get_field_id( 'token' ); ?>"/>
+        <input class="widefat"
+               id="<?php echo $this->get_field_id( 'token' ); ?>"
+               name="<?php echo $this->get_field_name( 'token' ); ?>"
+               type="text" style="width: 75%"
+               placeholder="oAuth token" max=""
+               value="<?php echo $token ?>"/>
+        <a href="https://github.com/settings/tokens/new" target="_blank" style="margin-left: 4px;">
+                <small>Create token</small>
+        </a>
+    </p>
 </div>

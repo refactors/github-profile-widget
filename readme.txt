@@ -15,9 +15,9 @@ A longer description.
 
 == Installation ==
 
-1. Install [Widget Name] via the WordPress.org plugin directory or uploading the files to your server.
-2. Go to your widgets dashboard and add "[Widget Title]".
-3. Select your options.
+1. Install "GitHub Profile Widget" via the WordPress.org plugin directory or uploading the files to your server.
+2. Go to your widgets dashboard and add "GitHub Profile Widget".
+3. Fill your GitHub username.
 4. Click save and you are done.
 
 == Screenshots ==

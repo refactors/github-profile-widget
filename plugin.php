@@ -113,10 +113,9 @@ class GitHub_Profile extends WP_Widget
     {
         $file = get_option($apiPath); // $apiPath is auto sanitized
         $timestamp = get_option($apiPath . 'time');
-        $now = microtime(true);
-		$timeDiff = $now - $timestamp + rand(0, 100); // rand to avoid asking all things at same time
+		$timeDiff = microtime(true) - $timestamp + rand(-4, 4); // 9 random results, prevents simultaneous expiring
 
-        if (!$file || !$timestamp || $timeDiff > $config['cache'] * 60) {
+		if (!$file || !$timestamp || $timeDiff > $config['cache'] * 60) {
             $header = "User-Agent: {$config[ 'username' ]}\r\n";
             if (isset($config['oAuth'])) {
                 $header = "Authorization: token {$config[ 'oAuth' ]}\r\n" . $header;
@@ -129,7 +128,7 @@ class GitHub_Profile extends WP_Widget
             ));
             $file = file_get_contents($apiPath, false, $context);
             update_option($apiPath, $file);
-            update_option($apiPath . 'time', $now);
+            update_option($apiPath . 'time', microtime(true));
         }
 
         return json_decode($file);

@@ -47,13 +47,13 @@
     <input class="widefat"
            id="<?php echo $this->get_field_id('cache'); ?>"
            name="<?php echo $this->get_field_name('cache'); ?>"
-           type="number" style="width: 50px;"
+           type="number" style="width: 50px;" 
            placeholder="Cache expiration time in minutes"
            value="<?php echo $cache ?>"/> minutes of cache
 </p>
 
 <p>
-    <small>0 disables cache; If disabled the plugin may stop working after a while because of API limits.</small>
+    <small>0 disables cache; less that 5 may create problems because of API limits <strong>unless you provide a token</strong>.</small>
 </p>
 
 <p>

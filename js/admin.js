@@ -1,5 +1,6 @@
-jQuery(document).ready(function () {
-    jQuery(".github-advanced-title").click(function () {
-        jQuery(".github-advanced").stop().slideToggle(500);
+jQuery(document).ready(function ($) {
+    var wrapper = $(".github-advanced-title").parents('.widgets-holder-wrap');
+    wrapper.on('click', '.github-advanced-title', function () {
+        $(".github-advanced").stop().slideToggle(500);
     });
 });

@@ -24,7 +24,7 @@
     <?php if (isset($config["title"])) : ?>
         <?php echo $before_title . $config["title"] . $after_title; ?>
     <?php endif; ?>
-
+	
     <div class="github-widget" id="<?php echo $this->id; ?>">
 
         <?php if (!isset($config["hideBuiltInHeader"]) || !$config["hideBuiltInHeader"] == "on") : ?>

@@ -181,8 +181,13 @@
     transition: all ease-in-out .2s;
 }
 
+.github-organisations {
+    padding: 10px 0 !important;
+}
+
 .github-avatarurl {
-    max-width: 16px;
+    max-width: 42px;
+    border-radius: 2px;
 }
 
 .github-vcard-stats {

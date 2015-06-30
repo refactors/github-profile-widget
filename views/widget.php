@@ -114,15 +114,12 @@
             </div>
 
 
-            <div class="github-block">
+	        <div class="github-block github-organisations">
                 <?php foreach ($organizations as $org) { ?>
-                    <div>
-                        <a target="_blank" href="https://github.com/<?php echo $org->login; ?>"
-                           title="<?php echo $org->description; ?>">
-                            <img src='<?php echo $org->avatar_url; ?>' class="github-avatarurl" />
-                            <?php echo $org->login ?>
-                        </a>
-                    </div>
+	                <a target="_blank" href="https://github.com/<?php echo $org->login; ?>"
+	                   title="<?php echo $org->description; ?>">
+		                <img src='<?php echo $org->avatar_url; ?>' class="github-avatarurl"/>
+	                </a>
                 <?php } ?>
             </div>
 

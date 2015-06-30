@@ -78,12 +78,12 @@
             <?php if ( $this->is_checked($config, 'followers_and_following' ) ): ?>
                 <div class="github-block github-vcard-stats">
                     <a class="github-vcard-stat" target='_blank'
-                       href="https://github.com/<?php echo $profile->login; ?>/followers">
+                       href="<?php echo $profile->html_url; ?>/followers">
                         <strong class="github-vcard-stat-count"><?php echo $profile->followers; ?></strong>
                         <span class="text-muted">Followers</span>
                     </a>
                     <a class="github-vcard-stat" target='_blank'
-                       href="https://github.com/<?php echo $profile->login; ?>/following">
+                       href="<?php echo $profile->html_url; ?>/following">
                         <strong class="github-vcard-stat-count"><?php echo $profile->following; ?></strong>
                         <span class="text-muted">Following</span>
                     </a>
@@ -95,7 +95,7 @@
                 <div class="github-block">
                     <div>
                         <span class="octicon octicon-repo"></span>
-                        <a href="https://github.com/<?php echo $profile->login; ?>/repositories" target="_blank">
+                        <a href="<?php echo $profile->html_url; ?>/repositories" target="_blank">
                             <?php echo $profile->public_repos; ?> Public Repositories
                         </a>
 
@@ -136,15 +136,15 @@
             <?php endif; ?>
 
 
-            <?php /*if ( $this->is_checked($config, 'feed' )) : ?>
+            <?php if ( $this->is_checked($config, 'feed' )) : ?>
                 <div class="github-block github-feed">
                     <span class="octicon octicon-rss"></span>
-                    <a href="https://github.com/<?php echo $profile->login; ?>?tab=activity" target="_blank">
+                    <a href="<?php echo $profile->html_url; ?>?tab=activity" target="_blank">
                         Feed
                     </a>
                     <?php require_once 'feed.php'; ?>
                 </div>
-            <?php endif; */ ?>
+            <?php endif; ?>
 
         </div>
     </div>

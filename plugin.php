@@ -56,7 +56,7 @@ class GitHub_Profile extends WP_Widget {
 			"cache"               => "5"
 		);
 
-		$config = is_array( $config ) ? $default : unserialize( $config );
+		$config = ! isset( $config['first_time'] ) ? $default : $config;
 
 		foreach ( $config as $key => $value ) {
 			${$key} = esc_attr( $value );
@@ -68,13 +68,13 @@ class GitHub_Profile extends WP_Widget {
 	}
 
 	public function update( $new_instance, $old_instance ) {
-		return serialize( $new_instance );
+		$new_instance['first_time'] = false;
+
+		return $new_instance;
 	}
 
 	public function widget( $args, $config ) {
 		extract( $args, EXTR_SKIP );
-		$config = ! empty( $config ) ? unserialize( $config ) : array();
-
 		ob_start( "refactors_HTMLCompressor" );
 
 		if ( empty( $config['username'] ) ) {

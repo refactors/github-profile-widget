@@ -39,7 +39,7 @@
 	<?php endforeach; ?>
 </p>
 
-<h4>Advanced Settings</h4>
+<h4>Advanced</h4>
 
 <p>
 	<label for="<?php echo $this->get_field_id( 'cache_time' ); ?>"/>
@@ -66,15 +66,13 @@
 	       id="<?php echo $this->get_field_id( 'token' ); ?>"
 	       name="<?php echo $this->get_field_name( 'token' ); ?>"
 	       type="text"
-	       placeholder="Your oAuth Token" max=""
+	       placeholder="Your oAuth token" max=""
 	       value="<?php echo $token ?>"/>
 </p>
 
 <p>
 	<small>
 		<a href="https://github.com/settings/tokens/new" target="_blank">Create token</a>. If you don't set
-		it, the plugin will only be able to do 60 calls per hour to the GitHub API (which usually is not a problem, as
-		the
-		plugin has cache)
+		it, the plugin will only be able to do 60 calls per hour to the GitHub API (not a problem, if the cache is at least 5 minutes).
 	</small>
 </p>

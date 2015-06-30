@@ -174,11 +174,11 @@
     overflow-x: hidden;
     overflow-y: scroll;
 
-    -webkit-transition: all ease-in-out .5s;
-    -moz-transition: all ease-in-out .5s;
-    -ms-transition: all ease-in-out .5s;
-    -o-transition: all ease-in-out .5s;
-    transition: all ease-in-out .5s;
+    -webkit-transition: all ease-in-out .2s;
+    -moz-transition: all ease-in-out .2s;
+    -ms-transition: all ease-in-out .2s;
+    -o-transition: all ease-in-out .2s;
+    transition: all ease-in-out .2s;
 }
 
 .github-avatarurl {
@@ -189,15 +189,17 @@
     text-align: center;
     padding: 10px 0 8px;
 }
+
 .github-vcard-stat-count {
     display: block;
     font-size: 28px;
     font-weight: bold;
     line-height: 1;
 }
+
 .github-vcard-stat {
     display: inline-block;
-    width: 33.333%;
+    width: 45%;
     font-size: 11px;
     text-transform: capitalize;
 }

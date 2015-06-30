@@ -23,3 +23,14 @@
 		</a>
 	<?php } ?>
 </p>
+
+<p>
+	<label for="<?php echo $this->get_field_id( 'oAuth' ); ?>"/>
+	<input class="widefat"
+	       id="<?php echo $this->get_field_id( 'oAuth' ); ?>"
+	       name="<?php echo $this->get_field_name( 'oAuth' ); ?>"
+	       type="text"
+	       style="width: 70%"
+	       placeholder="Your oAuth Token" max=""
+	       value="<?php echo $oAuth ?>"/>
+</p>

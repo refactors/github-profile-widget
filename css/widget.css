@@ -172,18 +172,21 @@
 }
 
 .github-repos-toggle:checked ~ .github-repos {
-    max-height: 200px;
+    max-height: 150px;
 }
 
 .github-repos {
     max-height: 0px;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     -webkit-transition: all ease-in-out .2s;
     -moz-transition: all ease-in-out .2s;
     -ms-transition: all ease-in-out .2s;
     -o-transition: all ease-in-out .2s;
     transition: all ease-in-out .2s;
+}
+.github-repos:hover {
+    overflow-y: auto;    
 }
 
 .github-organizations,

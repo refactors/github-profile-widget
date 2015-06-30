@@ -23,6 +23,7 @@ class GitHub_Profile extends WP_Widget {
 
 	protected $widget_slug = 'github-profile';
 	protected $checkboxes = array(
+                "avatar_and_name",
 		"meta_info",
 		"followers_and_following",
 		"repositories",
@@ -53,6 +54,7 @@ class GitHub_Profile extends WP_Widget {
 
 	public function form( $config ) {
 		$default = array(
+                        "avatar_and_name"     => "on",
 			"meta_info"           => "on",
 			"followers_following" => "on",
 			"organizations"       => "on",

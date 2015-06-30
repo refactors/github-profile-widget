@@ -40,15 +40,17 @@
 	    </header>
 
         <div class="github-widget-content">
-            <?php if ( $this->is_checked($config, 'meta_info' )) : ?>
-                <a target="_blank" href="<?php echo $profile->html_url; ?>" title="Check profile">
-                    <img class="github-profile-pic" src="<?php echo $profile->avatar_url; ?>" style="border-radius: 5px">
-                    <span class="github-names">
-                        <p class="github-name"><?php echo $profile->name; ?></p>
-                        <span class="github-username"><?php echo $profile->login; ?></span>
-                    </span>
-                </a>
-
+          <?php if ( $this->is_checked($config, 'avatar_and_name' )) : ?>
+            <a target="_blank" href="<?php echo $profile->html_url; ?>" title="Check profile">
+                <img class="github-profile-pic" src="<?php echo $profile->avatar_url; ?>" style="border-radius: 5px">
+                <span class="github-names">
+                    <p class="github-name"><?php echo $profile->name; ?></p>
+                    <span class="github-username"><?php echo $profile->login; ?></span>
+                </span>
+            </a>
+          <?php endif; ?>
+            
+          <?php if ( $this->is_checked($config, 'meta_info' )) : ?>
                 <div class="github-block">
                     <?php if (!empty($profile->company)): ?>
                         <div title="Company"><span class="octicon octicon-organization"></span><?php echo $profile->company; ?></div>

@@ -64,17 +64,11 @@
 		<input class="widefat"
 		       id="<?php echo $this->get_field_id( 'token' ); ?>"
 		       name="<?php echo $this->get_field_name( 'token' ); ?>"
-		       type="text" style="width: 70%"
+		       type="text" style="width: 75%"
 		       placeholder="oAuth token" max=""
 		       value="<?php echo $token ?>"/>
-		<a href="https://github.com/settings/tokens/new" target="_blank">
+                <a href="https://github.com/settings/tokens/new" target="_blank" style="margin-left: 4px;">
 			<small>Create token</small>
 		</a>
-	</p>
-
-	<p>
-		<small>If you don't set it, the plugin will only be able to do 60 calls per hour to the GitHub API (not a
-			problem, if the cache is at least 5 minutes).
-		</small>
 	</p>
 </div>

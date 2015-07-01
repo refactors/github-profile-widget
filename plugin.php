@@ -115,6 +115,7 @@ class GitHub_Profile extends WP_Widget {
 			if (!$file) {
 				echo 'Error with API; please provide ' 
 				    . (empty ( $config['token']) ? 'a token or increase cache time.' : 'a new token.');
+				return "";
 			}
 			update_option( $apiPath, $file );
 			update_option( $apiPath . 'time', microtime( true ) );

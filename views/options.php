@@ -13,20 +13,18 @@
     <input class="widefat"
            id="<?php echo $this->get_field_id('username'); ?>"
            name="<?php echo $this->get_field_name('username'); ?>"
-           type="text"
-           style="width: 90%"
-           placeholder="Your GitHub username" max=""
-           value="<?php echo $username ?>"/>
-           <?php if (!empty($username))
-           { ?>
-        <a href='http://github.com/<?php echo $username ?>' target='_blank'>
-            <img src="<?php echo plugins_url('css/expand.png', dirname(__FILE__)); ?>"/>
-        </a>
-<?php } ?>
+           type="text" max="" style="width: 90%"
+           placeholder="Your GitHub username"
+           value="<?php echo $username ?>" />    
+    <?php if (!empty($username)) { ?>
+         <a href='http://github.com/<?php echo $username ?>' target='_blank'>
+             <img src="<?php echo plugins_url('css/expand.png', dirname(__FILE__)); ?>"/>
+         </a>
+    <?php } ?>
 </p>
 
 <p>
-<h4>Show</h4>
+    <h4>Show</h4>
     <?php foreach ($this->checkboxes as $option): ?>
         <input class="checkbox" type="checkbox"
     <?php checked(${$option}, 'on'); ?>

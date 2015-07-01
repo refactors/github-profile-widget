@@ -40,11 +40,7 @@ class GitHub_Profile extends WP_Widget {
 			$this->widget_slug
 		)
 		);
-
-		// Register admin scripts
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
-
-		// Register widget styles
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_widget_styles' ) );
 	}
 

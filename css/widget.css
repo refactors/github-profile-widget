@@ -113,13 +113,15 @@
 }
 
 .github-name {
-    font-size: 1.2em;
+    color: #444;
+    font-size: 1.15em;
     margin: 0 0 0.1em !important;
     font-weight: bold;
 }
 
 .github-username {
-    font-size: 1.1em;
+    font-size: 1.15em;
+    font-weight: 300;
     margin: 0.1em 0 !important;
     color: #666;
 }

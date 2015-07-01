@@ -13,14 +13,6 @@
     outline: 0;
 }
 
-.github-widget,
-.github-widget p,
-.github-widget a,
-.github-widget h1,
-.github-widget h2 {
-    font-family: "Roboto", sans-serif !important;
-}
-
 .github-widget h2 {
     font-size: 1em;
     font-weight: bold;

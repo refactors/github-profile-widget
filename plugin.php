@@ -113,6 +113,10 @@ class GitHub_Profile extends WP_Widget {
 				)
 			) );
 			$file = file_get_contents( $apiPath, false, $context );
+			if (!$file) {
+				echo 'Error with API; please provide ';
+				echo empty ( $config['token']) ? 'a token or increase cache time.' : 'another token.';
+			}
 			update_option( $apiPath, $file );
 			update_option( $apiPath . 'time', microtime( true ) );
 		}

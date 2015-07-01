@@ -109,9 +109,14 @@
 
 .github-block {
     display: block;
-    padding: 10px 0 8px 24px;
+    padding: 10px 0 8px;
     font-size: 14px;
     border-top: 1px solid #eee;
+}
+
+.github-block.with-icons {
+
+    padding-left: 24px;
 }
 
 .github-block div {
@@ -164,11 +169,6 @@
     overflow-y: auto;
 }
 
-.github-organizations,
-.github-feed-content {
-    padding: 10px 0 !important;
-}
-
 .github-feed .github-feed-entry {
     font-size: 80%;
 }
@@ -180,7 +180,6 @@
 
 .github-vcard-stats {
     text-align: center;
-    padding: 10px 0 8px;
 }
 
 .github-vcard-stat-count {
@@ -198,25 +197,29 @@
 }
 
 /* Feed CSS */
-.github-feed .github-feed-entry {
-    margin-left: -24px;
+.github-feed-entries {
+    height: 250px;
+    overflow: auto;
+}
+
+.github-feed-entry {
     padding: 1em 0 1em 12px;
     overflow: hidden;
     border-top: 1px solid #f1f1f1;
 }
 
-.github-feed .github-feed-entry:first-of-type {
+.github-feed-entry:first-of-type {
     border-top: none;
 }
 
-.github-feed .github-feed-entry .body {
+.github-feed-entry .body {
     padding: 0.8em 0 0;
     overflow: hidden;
     font-size: 14px;
     border-bottom: 0;
 }
 
-.github-feed .github-feed-entry .mega-octicon {
+.github-feed-entry .mega-octicon {
     position: absolute;
     top: 14px;
     left: 0;

@@ -52,7 +52,7 @@
 			<?php endif; ?>
 
 			<?php if ( $this->is_checked( $config, 'meta_info' ) ) : ?>
-				<div class="github-block">
+				<div class="github-block with-icons">
 					<?php if ( ! empty( $profile->company ) ): ?>
 						<div title="Company"><span
 								class="octicon octicon-organization"></span><?php echo $profile->company; ?></div>
@@ -96,7 +96,7 @@
 			<?php endif; ?>
 
 			<?php if ( $this->is_checked( $config, 'meta_info' ) ) : ?>
-				<div class="github-block">
+				<div class="github-block with-icons">
 					<div>
 						<span class="octicon octicon-repo"></span>
 						<a href="<?php echo $profile->html_url; ?>/repositories" target="_blank">
@@ -141,11 +141,14 @@
 
 
 			<?php if ( $this->is_checked( $config, 'feed' ) ) : ?>
-				<div class="github-block github-feed">
+				<div class="github-block github-feed with-icons">
 					<span class="octicon octicon-rss"></span>
 					<a href="<?php echo $profile->html_url; ?>?tab=activity" target="_blank">
 						Feed
 					</a>
+
+				</div>
+				<div class="github-feed-entries">
 					<?php require_once 'feed.php'; ?>
 				</div>
 			<?php endif; ?>

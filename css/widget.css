@@ -222,10 +222,10 @@
     text-transform: capitalize;
 }
 
-/* Feed CSS
+/* Feed CSS */
 .github-feed .github-feed-entry {
     margin-left: -24px;
-    padding: 1em 0 1em 45px;
+    padding: 1em 0 1em 12px;
     overflow: hidden;
     border-top: 1px solid #f1f1f1;
 }
@@ -295,4 +295,4 @@
     line-height: 0;
     background-color: #fff;
     border-radius: 3px;
-} */
+}

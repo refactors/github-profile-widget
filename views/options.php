@@ -53,7 +53,7 @@
                placeholder="Cache expiration time in minutes"
                value="<?php echo $cache ?>"/> minutes of cache
     </p>
-    <small>Less than 5 min. may hit API limits, unless a token is provided.</small>
+    <small>If cache is less than 5 min, widget may hit API limit, unless a token is provided.</small>
 
     <p>
         <label for="<?php echo $this->get_field_id( 'token' ); ?>"/>
@@ -62,9 +62,9 @@
                name="<?php echo $this->get_field_name( 'token' ); ?>"
                type="text" style="width: 75%"
                placeholder="oAuth token" max=""
-               value="<?php echo $token ?>"/>
+               value="<?php echo $token ?>" />
         <a href="https://github.com/settings/tokens/new" target="_blank" style="margin-left: 4px;">
-                <small>Create token</small>
+			<small>Create token</small>
         </a>
     </p>
 </div>

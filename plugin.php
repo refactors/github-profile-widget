@@ -71,33 +71,31 @@ class GitHub_Profile extends WP_Widget {
 	}
 
 	public function widget( $args, $config ) {
-		extract( $args, EXTR_SKIP );
-		ob_start( "refactors_HTMLCompressor" );
-
 		if ( empty( $config['username'] ) ) {
-			echo 'Please configure the plugin first';
-		} else {
-			$url = 'https://api.github.com/users/' . $config['username'];
-
-			$profile             = $this->get_github_api_content( $url, $config );
-			$profile->created_at = new DateTime( $profile->created_at );
-			$profile->events_url = str_replace( '{/privacy}', '/public', $profile->events_url );
-
-			$optionsToUrls = array(
-				'repositories'  => 'repos',
-				'organizations' => 'organizations',
-				'feed'          => 'events'
-			);
-
-			foreach ( $optionsToUrls as $option => $url ) {
-				if ( $this->is_checked( $config, $option ) ) {
-					${$option} = $this->get_github_api_content( $profile->{$url . '_url'}, $config );
-				}
-			}
-
-			require 'views/widget.php';
+			return;
 		}
 
+		$url = 'https://api.github.com/users/' . $config['username'];
+
+		$profile             = $this->get_github_api_content( $url, $config );
+		$profile->created_at = new DateTime( $profile->created_at );
+		$profile->events_url = str_replace( '{/privacy}', '/public', $profile->events_url );
+
+		$optionsToUrls = array(
+			'repositories'  => 'repos',
+			'organizations' => 'organizations',
+			'feed'          => 'events'
+		);
+
+		foreach ( $optionsToUrls as $option => $url ) {
+			if ( $this->is_checked( $config, $option ) ) {
+				${$option} = $this->get_github_api_content( $profile->{$url . '_url'}, $config );
+			}
+		}
+
+		extract( $args, EXTR_SKIP );
+		ob_start( "refactors_HTMLCompressor" );
+		require 'views/widget.php';
 		ob_end_flush();
 	}
 

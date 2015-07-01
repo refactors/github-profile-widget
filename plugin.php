@@ -113,8 +113,9 @@ class GitHub_Profile extends WP_Widget {
 			$context = stream_context_create( array(
 				'http' => array(
 					'method' => "GET",
-					'header' => (!empty( $config[ 'token' ] ) ? "Authorization: token {$config[ 'token' ]}\r\n" : '' ) .
-					"User-Agent: {$config[ 'username' ]}\r\n"
+					'header' =>
+						(!empty( $config[ 'token' ] ) ? "Authorization: token {$config[ 'token' ]}\r\n" : '' ) .
+						"User-Agent: {$config[ 'username' ]}\r\n"
 				)
 			) );
 			$file = file_get_contents( $apiPath, false, $context );

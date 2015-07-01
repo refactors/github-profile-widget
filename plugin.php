@@ -74,7 +74,7 @@ class GitHub_Profile extends WP_Widget {
 			return;
 		}
 
-		$url = 'https://api.github.com/users/' . $config['username'];
+		$url = self::API_PATH . '/users/' . $config['username'];
 
 		$profile             = $this->get_github_api_content( $url, $config );
 		$profile->created_at = new DateTime( $profile->created_at );

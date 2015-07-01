@@ -109,10 +109,10 @@ class GitHub_Profile extends WP_Widget {
 					'method' => "GET",
 					'header' =>
 						"User-Agent: {$config['username']}\r\n" .
-						( ! empty( $config['token'] ) ? "Authorization: token {$config['token']}\r\n" : '' )
+						( empty( $config['token'] ) ? '' : "Authorization: token {$config['token']}\r\n" )
 				)
 			) );
-			$file    = file_get_contents( $apiPath, false, $context );
+			$file = file_get_contents( $apiPath, false, $context );
 			update_option( $apiPath, $file );
 			update_option( $apiPath . 'time', microtime( true ) );
 		}

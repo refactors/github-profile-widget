@@ -176,6 +176,7 @@
 .github-avatarurl {
     max-width: 36px;
     border-radius: 3px;
+    margin-right: 7px;
 }
 
 .github-vcard-stats {

@@ -9,15 +9,15 @@
  * Network: true
  * License: GPL2 or later
  */
-
 // prevent direct file access
-if ( ! defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 require_once( 'lib/htmlcompressor.php' );
 
 class GitHub_Profile extends WP_Widget {
+
 	const API_PATH = "https://api.github.com";
 
 	protected $widget_slug = 'github-profile';
@@ -31,17 +31,14 @@ class GitHub_Profile extends WP_Widget {
 		"feed"
 	);
 
-
-	public function __construct() {
+	public function __construct()
+	{
 		parent::__construct(
-			$this->widget_slug,
-			'GitHub Profile',
-			$this->widget_slug,
-			array(
-				'classname'   => $this->widget_slug . '-class',
-				'description' => 'A widget to show a small version of your GitHub profile',
-				$this->widget_slug
-			)
+		$this->widget_slug, 'GitHub Profile', $this->widget_slug, array(
+			'classname'		 => $this->widget_slug . '-class',
+			'description'	 => 'A widget to show a small version of your GitHub profile',
+			$this->widget_slug
+		)
 		);
 
 		// Register admin scripts
@@ -51,16 +48,17 @@ class GitHub_Profile extends WP_Widget {
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_widget_styles' ) );
 	}
 
-	public function form( $config ) {
+	public function form( $config )
+	{
 		$default = array(
-			"avatar_and_name"     => "on",
-			"meta_info"           => "on",
-			"followers_following" => "on",
-			"organizations"       => "on",
-			"cache"               => "5"
+			"avatar_and_name"		 => "on",
+			"meta_info"				 => "on",
+			"followers_following"	 => "on",
+			"organizations"			 => "on",
+			"cache"					 => "5"
 		);
 
-		$config = ! isset( $config['first_time'] ) ? $default : $config;
+		$config = !isset( $config[ 'first_time' ] ) ? $default : $config;
 
 		foreach ( $config as $key => $value ) {
 			${$key} = esc_attr( $value );
@@ -71,20 +69,22 @@ class GitHub_Profile extends WP_Widget {
 		ob_end_flush();
 	}
 
-	public function update( $new_instance, $old_instance ) {
-		$new_instance['first_time'] = false;
+	public function update( $new_instance, $old_instance )
+	{
+		$new_instance[ 'first_time' ] = false;
 
 		return $new_instance;
 	}
 
-	public function widget( $args, $config ) {
+	public function widget( $args, $config )
+	{
 		extract( $args, EXTR_SKIP );
 		ob_start( "refactors_HTMLCompressor" );
 
-		if ( empty( $config['username'] ) ) {
+		if ( empty( $config[ 'username' ] ) ) {
 			echo 'Please configure the plugin first';
 		} else {
-			$profile             = $this->get_github_api_content( self::API_PATH . "/users/" . $config['username'], $config );
+			$profile = $this->get_github_api_content( self::API_PATH . "/users/" . $config[ 'username' ], $config );
 			$profile->created_at = new DateTime( $profile->created_at );
 
 			if ( $this->is_checked( $config, 'repositories' ) ) {
@@ -95,7 +95,7 @@ class GitHub_Profile extends WP_Widget {
 			}
 			if ( $this->is_checked( $config, 'feed' ) ) {
 				$profile->events_url = str_replace( '{/privacy}', '/public', $profile->events_url );
-				$feed                = $this->get_github_api_content( $profile->events_url, $config );
+				$feed = $this->get_github_api_content( $profile->events_url, $config );
 			}
 			require 'views/widget.php';
 		}
@@ -103,21 +103,21 @@ class GitHub_Profile extends WP_Widget {
 		ob_end_flush();
 	}
 
-	private function get_github_api_content( $apiPath, $config ) {
-		$file         = get_option( $apiPath ); // $apiPath is auto sanitized
-		$timestamp    = get_option( $apiPath . 'time' );
+	private function get_github_api_content( $apiPath, $config )
+	{
+		$file = get_option( $apiPath ); // $apiPath is auto sanitized
+		$timestamp = get_option( $apiPath . 'time' );
 		$fileCacheAge = microtime( true ) - $timestamp + rand( - 4, 4 ); // 9 random results prevents simultaneous expiring
-
 		// TODO async update!!! return what's (if) available
-		if ( ! $file || ! $timestamp || $fileCacheAge > $config['cache'] * 60 ) {
+		if ( !$file || !$timestamp || $fileCacheAge > $config[ 'cache' ] * 60 ) {
 			$context = stream_context_create( array(
 				'http' => array(
 					'method' => "GET",
-					'header' => ( ( ! empty( $config['token'] ) ) ? "Authorization: token {$config[ 'token' ]}\r\n" : '' ) .
-					            "User-Agent: {$config[ 'username' ]}\r\n"
+					'header' => (!empty( $config[ 'token' ] ) ? "Authorization: token {$config[ 'token' ]}\r\n" : '' ) .
+					"User-Agent: {$config[ 'username' ]}\r\n"
 				)
 			) );
-			$file    = file_get_contents( $apiPath, false, $context );
+			$file = file_get_contents( $apiPath, false, $context );
 			update_option( $apiPath, $file );
 			update_option( $apiPath . 'time', microtime( true ) );
 		}
@@ -125,18 +125,22 @@ class GitHub_Profile extends WP_Widget {
 		return json_decode( $file );
 	}
 
-	public function is_checked( $conf, $name ) {
+	public function is_checked( $conf, $name )
+	{
 		return isset( $conf[ $name ] ) && $conf[ $name ] == 'on';
 	}
 
-	public function register_widget_styles() {
+	public function register_widget_styles()
+	{
 		wp_enqueue_style( $this->widget_slug . '-octicons', plugins_url( 'css/octicons/octicons.css', __FILE__ ) );
 		wp_enqueue_style( $this->widget_slug . '-widget-styles', plugins_url( 'css/widget.css', __FILE__ ) );
 	}
 
-	public function register_admin_scripts() {
+	public function register_admin_scripts()
+	{
 		wp_enqueue_script( $this->widget_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array( 'jquery' ) );
 	}
+
 }
 
 add_action( 'widgets_init', create_function( '', 'return register_widget("GitHub_Profile");' ) );

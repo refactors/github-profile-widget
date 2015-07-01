@@ -75,10 +75,9 @@ class GitHub_Profile extends WP_Widget {
 		}
 
 		$url = self::API_PATH . '/users/' . $config['username'];
-
 		$profile             = $this->get_github_api_content( $url, $config );
 		$profile->created_at = new DateTime( $profile->created_at );
-		$profile->events_url = str_replace( '{/privacy}', '/public', $profile->events_url );
+		$profile->events_url = str_replace( '{/privacy}', '', $profile->events_url );
 
 		$optionsToUrls = array(
 			'repositories'  => 'repos',

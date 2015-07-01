@@ -77,25 +77,6 @@
 }
 
 /* PROFILE */
-
-.github-widget-avatar {
-    border-radius: 3px;
-}
-
-.github-widget-pi-left {
-    display: inline-block;
-    width: 28%;
-    margin-right: 2.5%;
-}
-
-.github-widget-pi-right {
-    display: inline-block;
-    vertical-align: top;
-    padding: 5px;
-    box-sizing: border-box;
-    width: 67.5%;
-}
-
 .github-profile-pic {
     width: 25%;
     display: inline-block;

@@ -77,19 +77,22 @@ class GitHub_Profile extends WP_Widget {
 		if ( empty( $config['username'] ) ) {
 			echo 'Please configure the plugin first';
 		} else {
-			$profile             = $this->get_github_api_content( self::API_PATH . "/users/" . $config['username'], $config );
-			$profile->created_at = new DateTime( $profile->created_at );
-			$is                  = $profile->type;
+			$url = 'https://api.github.com/users/' . $config['username'];
 
-			if ( $this->is_checked( $config, 'repositories' ) ) {
-				$repos = $this->get_github_api_content( $profile->repos_url, $config );
-			}
-			if ( $this->is_checked( $config, 'organizations' ) ) {
-				$organizations = $this->get_github_api_content( $profile->organizations_url, $config );
-			}
-			if ( $this->is_checked( $config, 'feed' ) ) {
-				$profile->events_url = str_replace( '{/privacy}', '/public', $profile->events_url );
-				$feed                = $this->get_github_api_content( $profile->events_url, $config );
+			$profile             = $this->get_github_api_content( $url, $config );
+			$profile->created_at = new DateTime( $profile->created_at );
+			$profile->events_url = str_replace( '{/privacy}', '/public', $profile->events_url );
+
+			$optionsToUrls = array(
+				'repositories'  => 'repos',
+				'organizations' => 'organizations',
+				'feed'          => 'events'
+			);
+
+			foreach ( $optionsToUrls as $option => $url ) {
+				if ( $this->is_checked( $config, 'repositories' ) ) {
+					${$option} = $this->get_github_api_content( $profile->{$url . '_url'}, $config );
+				}
 			}
 
 			require 'views/widget.php';

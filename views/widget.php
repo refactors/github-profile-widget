@@ -104,7 +104,7 @@
                         <label for="gh-repo-t" class="github-repos-toggle-la octicon octicon-chevron-down"></label>
 
                         <div class="github-repos">
-                            <?php foreach ($repos as $repo) { ?>
+	                        <?php foreach ( $repositories as $repo ) { ?>
                                 <div class="github-repo-name">
                                     <a target="_blank" href="<?php echo $repo->html_url; ?>"
                                        title="<?php echo $repo->full_name; ?>">

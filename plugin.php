@@ -92,7 +92,7 @@ class GitHub_Profile extends WP_Widget {
 				${$option} = $this->get_github_api_content( $profile->{$url . '_url'}, $config );
 			}
 		}
-		
+
 		extract( $args, EXTR_SKIP );
 		ob_start( "refactors_HTMLCompressor" );
 		require 'views/widget.php';

@@ -136,7 +136,7 @@
             <?php endif; ?>
 
 
-            <?php if ( false && $this->is_checked($config, 'feed' )) : ?>
+	        <?php if ( $this->is_checked( $config, 'feed' ) ) : ?>
                 <div class="github-block github-feed">
                     <span class="octicon octicon-rss"></span>
                     <a href="<?php echo $profile->html_url; ?>?tab=activity" target="_blank">

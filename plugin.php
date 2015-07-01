@@ -90,7 +90,7 @@ class GitHub_Profile extends WP_Widget {
 			);
 
 			foreach ( $optionsToUrls as $option => $url ) {
-				if ( $this->is_checked( $config, 'repositories' ) ) {
+				if ( $this->is_checked( $config, $option ) ) {
 					${$option} = $this->get_github_api_content( $profile->{$url . '_url'}, $config );
 				}
 			}

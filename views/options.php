@@ -51,7 +51,7 @@
 		       placeholder="Cache expiration time in minutes"
 		       value="<?php echo $cache ?>"/> minutes of cache
 	</p>
-	<small>If cache is less than 5 min, widget may hit API limit, unless a token is provided.</small>
+	<small>Widget may hit API limit if cache is less than 5 min, unless a token is provided.</small>
 
 	<p>
 		<label for="<?php echo $this->get_field_id( 'token' ); ?>"/>

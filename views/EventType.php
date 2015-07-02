@@ -14,11 +14,6 @@ class EventType {
 	{
 		$this->info = $info;
 	}
-	
-	function __toString() {
-		return $this->info->type;
-	}
-	
 	function getAction() {
 		return str_replace('event', '', strtolower( $this->info->type ) );
 	}
@@ -28,31 +23,10 @@ class EventType {
 	}
 	
 	function getPayload() {
-		return "TODO";
+		return $this->info->repo->name;
+	}
+	
+	function __toString() {
+		return $this->info->type;
 	}
 }
-//
-//EventType::$types = array(
-//	 "Deployment",
-//	 "DeploymentStatus",
-//	 "Download",
-//	 "Follow",
-//	 "Fork",
-//	 "ForkApply",
-//	 "Gist",
-//	 "Gollum",
-//	 "IssueComment",
-//	 "Issues",
-//	 "Member",
-//	 "Membership",
-//	 "PageBuild",
-//	 "Public",
-//	 "PullRequest",
-//	 "PullRequestReviewComment",
-//	 "Push",
-//	 "Release",
-//	 "Repository",
-//	 "Status",
-//	 "TeamAdd",
-//	 "Watch" )
-//);

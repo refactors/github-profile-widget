@@ -28,6 +28,7 @@ class EventType {
 	}
 	
 	function getAction() {
+               // TODO :\
 		return str_replace('event', '', strtolower( $this->info->type ) ); // TODO!
 	}
 	

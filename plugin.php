@@ -100,7 +100,7 @@ class GitHub_Profile extends WP_Widget {
 	private function get_github_api_content( $apiPath, $config ) {
 		$file         = get_option( $apiPath ); // $apiPath is auto sanitized
 		$timestamp    = get_option( $apiPath . 'time' );
-		$fileCacheAge = microtime( true ) - $timestamp + rand( - 4, 4 ); // 9 random results prevents simultaneous expiring
+		$fileCacheAge = time() - $timestamp + rand( - 4, 4 ); // 9 random results prevents simultaneous expiring
 		// TODO async update!!! return what's (if) available
 		if ( ! $file || ! $timestamp || $fileCacheAge > $config['cache'] * 60 ) {
 			$context = stream_context_create( array(
@@ -118,7 +118,7 @@ class GitHub_Profile extends WP_Widget {
 				return "";
 			}
 			update_option( $apiPath, $file );
-			update_option( $apiPath . 'time', microtime( true ) );
+			update_option( $apiPath . 'time', time() );
 		}
 
 		return json_decode( $file );

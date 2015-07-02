@@ -169,10 +169,6 @@
     overflow-y: auto;
 }
 
-.github-feed .github-feed-entry {
-    font-size: 80%;
-}
-
 .github-avatarurl {
     max-width: 36px;
     border-radius: 3px;
@@ -206,5 +202,6 @@
 }
 
 .github-feed-entry {
+    font-size: 90%;
     margin-bottom: 0.1em;
 }

@@ -198,7 +198,7 @@
 }
 
 .github-feed-entries {
-    max-height: 200px;
+    max-height: 16em;
     overflow: hidden;
 }
 .github-feed-entries:hover {
@@ -206,5 +206,5 @@
 }
 
 .github-feed-entry {
-    margin-bottom: 8px;
+    margin-bottom: 0.1em;
 }

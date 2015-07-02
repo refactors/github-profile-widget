@@ -22,6 +22,10 @@ class EventType {
 		return $this->info->repo->name;
 	}
 	
+	function getTimeAgo() {
+		// TODO
+	}
+	
 	function getAction() {
 		return str_replace('event', '', strtolower( $this->info->type ) ); // TODO!
 	}

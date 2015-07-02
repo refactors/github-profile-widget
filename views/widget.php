@@ -1,5 +1,5 @@
 <?php
-/*
+/* 
  * HackerRank Profile Widget for WordPress
  *
  *     Copyright (C) 2015 Henrique Dias <hacdias@gmail.com>
@@ -33,7 +33,7 @@
 
 			<div class="github-widget-header-text">
 				<a class="github-widget-header-link" target="_blank"
-				   href="<?php echo $profile->html_url; ?>" title="Check profile">
+				   href="<?php echo $profile->html_url; ?>" title="View profile">
 					<?php echo $profile->login; ?> (<?php echo $profile->name; ?>)
 				</a>
 			</div>
@@ -41,7 +41,7 @@
 
 		<div class="github-widget-content">
 			<?php if ( $this->is_checked( $config, 'avatar_and_name' ) ) : ?>
-				<a target="_blank" href="<?php echo $profile->html_url; ?>" title="Check profile">
+				<a target="_blank" href="<?php echo $profile->html_url; ?>" title="View profile">
 					<img class="github-profile-pic" src="<?php echo $profile->avatar_url; ?>"
 					     style="border-radius: 5px">
                 <span class="github-names">

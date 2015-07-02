@@ -16,10 +16,11 @@ foreach ($feed as $entry) :
         <span class="github-feed-action" style="margin-right: 3px;">
             <?php echo $eventType->getAction() ?>
         </span>
-        <span class="github-feed-object" style="font-weight: bold; margin-right: 3px;">
-            <?php echo $eventType->getPayload() ?>
-        </span>
-        
+        <a class="github-feed-object" style="font-weight: bold; margin-right: 3px;"
+           target="_blank" href="<?php echo $eventType->getObjectLink() ?>">
+               <?php echo $eventType->getPayload() ?>
+        </a>
+
     </div>
 
     <?php

@@ -40,7 +40,7 @@ class EventType {
 	}
 	
 	function getObjectLink() {
-		// TODO
+		return "https://github.com/" . $this->info->repo->name ;
 	}
 	function __toString() {
 		return $this->info->type;

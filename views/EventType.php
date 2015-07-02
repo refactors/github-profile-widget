@@ -23,7 +23,7 @@ class EventType {
 	}
 	
 	function getAction() {
-		return str_replace('event', '', strtolower( $this->info->type ) );
+		return str_replace('event', '', strtolower( $this->info->type ) ); // TODO!
 	}
 	
 	function getOcticon() {

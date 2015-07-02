@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * help:
+ * https://developer.github.com/v3/activity/events/types/
+ * https://github.com/ussuri?tab=activity
+ * https://api.github.com/users/ussuri/events/public
+ */
 class EventType {
 
 	protected $info;

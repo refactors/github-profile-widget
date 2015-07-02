@@ -10,12 +10,8 @@ class EventType {
 
 	protected $info;
 
-	function __construct( $info )
-	{
+	function __construct( $info ) {
 		$this->info = $info;
-	}
-	function getAction() {
-		return str_replace('event', '', strtolower( $this->info->type ) );
 	}
 	
 	function getActor() {
@@ -26,6 +22,21 @@ class EventType {
 		return $this->info->repo->name;
 	}
 	
+	function getAction() {
+		return str_replace('event', '', strtolower( $this->info->type ) );
+	}
+	
+	function getOcticon() {
+		// TODO
+	}
+	
+	function getActorLink() {
+		// TODO
+	}
+	
+	function getObjectLink() {
+		// TODO
+	}
 	function __toString() {
 		return $this->info->type;
 	}

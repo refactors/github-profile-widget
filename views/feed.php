@@ -13,7 +13,7 @@ $eventType = new EventType( $entry );
 	<span class="github-feed-action" style="margin-right: 3px;">
 		<?php echo $eventType->getAction() ?>
 	</span>
-	<span class="github-feed-subject" style="font-weight: bold; margin-right: 3px;">
+	<span class="github-feed-object" style="font-weight: bold; margin-right: 3px;">
 		<?php echo $eventType->getPayload() ?>
 	</span>
 </div>

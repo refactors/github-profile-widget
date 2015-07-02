@@ -23,7 +23,8 @@ class EventType {
 	}
 	
 	function getTimeAgo() {
-		// TODO
+		$this->info->created_at = new DateTime($this->info->created_at);
+                return humanTiming($this->info->created_at);
 	}
 	
 	function getAction() {
@@ -44,4 +45,24 @@ class EventType {
 	function __toString() {
 		return $this->info->type;
 	}
+}
+
+
+function humanTiming (DateTime $time) {    
+    $time = time() - $time->getTimestamp(); // to get the time since that moment
+    $tokens = array (
+        31536000 => 'year',
+        2592000 => 'month',
+        604800 => 'week',
+        86400 => 'day',
+        3600 => 'hour',
+        60 => 'minute',
+        1 => 'second'
+    );
+    foreach ($tokens as $unit => $text) {
+        if ($time >= $unit) {
+            $numberOfUnits = floor($time / $unit);
+            return $numberOfUnits . ' ' . $text . ($numberOfUnits>1 ? 's' : '');
+        }
+    }
 }

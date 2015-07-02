@@ -196,3 +196,15 @@
     font-size: 11px;
     text-transform: capitalize;
 }
+
+.github-feed-entries {
+    max-height: 200px;
+    overflow: hidden;
+}
+.github-feed-entries:hover {
+    overflow-y: auto;
+}
+
+.github-feed-entry {
+    margin-bottom: 8px;
+}

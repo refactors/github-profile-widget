@@ -49,8 +49,8 @@ class EventType {
 }
 
 
-function humanTiming (DateTime $time) {    
-    $time = time() - $time->getTimestamp(); // to get the time since that moment
+function humanTiming (DateTime $time_) {    
+    $time = time() - $time_->getTimestamp(); // to get the time since that moment
     $tokens = array (
         31536000 => 'year',
         2592000 => 'month',

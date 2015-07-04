@@ -108,6 +108,7 @@ class GitHub_Profile extends WP_Widget {
 				'http' => array(
 					'method' => "GET",
 					'header' =>
+					    "Accept: application/vnd.github.v3+json\r\n" .
 						"User-Agent: {$config['username']}\r\n" .
 						( empty( $config['token'] ) ? '' : "Authorization: token {$config['token']}\r\n" )
 				)

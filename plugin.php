@@ -103,7 +103,6 @@ class GitHub_Profile extends WP_Widget {
 		$timestamp    = get_option( $apiPath . 'time' );
 		$fileCacheAge = time() - $timestamp + rand( - 4, 4 ); // 9 random results prevents simultaneous expiring
 
-		// TODO async update!!! return what's (if) available
 		if ( ! $file || ! $timestamp || $fileCacheAge > $config['cache'] * 60 ) {
 			$context = stream_context_create( array(
 				'http' => array(

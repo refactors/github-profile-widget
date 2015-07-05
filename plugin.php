@@ -28,8 +28,8 @@ class GitHub_Profile extends WP_Widget {
 		"followers_and_following",
 		"repositories",
 		"gists",
-		"organizations",
-		"feed"
+		"organizations"/* ,
+		"feed" */
 	);
 
 	public function __construct() {

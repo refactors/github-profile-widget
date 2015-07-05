@@ -14,7 +14,7 @@
 	       id="<?php echo $this->get_field_id( 'username' ); ?>"
 	       name="<?php echo $this->get_field_name( 'username' ); ?>"
 	       type="text" max="" style="width: 90%"
-	       placeholder="Your GitHub username"
+	       placeholder="GitHub username (or organization)"
 	       value="<?php echo $username ?>"/>
 	<?php if ( ! empty( $username ) ) { ?>
 		<a href='http://github.com/<?php echo $username ?>' target='_blank'>

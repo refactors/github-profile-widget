@@ -19,7 +19,7 @@ require_once( 'lib/htmlcompressor.php' );
 class GitHub_Profile extends WP_Widget {
 
 	const API_PATH = "https://api.github.com";
-	const c = "v3";
+	const API_VERSION = "v3";
 
 	protected $widget_slug = 'github-profile';
 	protected $checkboxes = array(

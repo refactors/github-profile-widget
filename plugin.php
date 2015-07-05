@@ -102,7 +102,7 @@ class GitHub_Profile extends WP_Widget {
 		$timestamp    = get_option( $apiPath . 'time' );
 
 		if ( ! $file || time() - $timestamp >= $config['cache'] * 60 ) {
-			wp_schedule_event( time() + $config['cache'] * 60, 'none', 'flush_github_api_content', array(
+			wp_schedule_single_event( time() + $config['cache'] * 60, 'flush_github_api_content', array(
 				$apiPath,
 				$config
 			) );
@@ -110,6 +110,7 @@ class GitHub_Profile extends WP_Widget {
 
 		return json_decode( $file );
 	}
+
 
 	public function is_checked( $conf, $name ) {
 		return isset( $conf[ $name ] ) && $conf[ $name ] == 'on';

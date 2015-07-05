@@ -100,27 +100,12 @@ class GitHub_Profile extends WP_Widget {
 	private function get_github_api_content( $apiPath, $config ) {
 		$file         = get_option( $apiPath ); // $apiPath is auto sanitized
 		$timestamp    = get_option( $apiPath . 'time' );
-		$fileCacheAge = time() - $timestamp + rand( - 4, 4 ); // 9 random results prevents simultaneous expiring
-                
-		// TODO async update!!! return what's (if) available
-		if ( ! $file || ! $timestamp || $fileCacheAge > $config['cache'] * 60 ) {
-			$context = stream_context_create( array(
-				'http' => array(
-					'method' => "GET",
-					'header' =>
-					    "Accept: application/vnd.github.v3+json\r\n" .
-						"User-Agent: {$config['username']}\r\n" .
-						( empty( $config['token'] ) ? '' : "Authorization: token {$config['token']}\r\n" )
-				)
+
+		if ( ! $file || time() - $timestamp >= $config['cache'] * 60 ) {
+			wp_schedule_event( time() + $config['cache'] * 60, 'none', 'flush_github_api_content', array(
+				$apiPath,
+				$config
 			) );
-			$file = file_get_contents( $apiPath, false, $context );
-			if (!$file) {
-				echo 'Error with API; please provide ' 
-				    . (empty ( $config['token']) ? 'a token or increase cache time.' : 'a new token.');
-				return "";
-			}
-			update_option( $apiPath, $file );
-			update_option( $apiPath . 'time', time() );
 		}
 
 		return json_decode( $file );
@@ -128,6 +113,26 @@ class GitHub_Profile extends WP_Widget {
 
 	public function is_checked( $conf, $name ) {
 		return isset( $conf[ $name ] ) && $conf[ $name ] == 'on';
+	}
+
+	public function flush_github_api_content( $apiPath, $config ) {
+		$context = stream_context_create( array(
+			'http' => array(
+				'method' => "GET",
+				'header' =>
+					"Accept: application/vnd.github.v3+json\r\n" .
+					"User-Agent: {$config['username']}\r\n" .
+					( empty( $config['token'] ) ? '' : "Authorization: token {$config['token']}\r\n" )
+			)
+		) );
+		$file    = file_get_contents( $apiPath, false, $context );
+		if ( ! $file ) {
+			echo 'Error with API; please provide '
+			     . ( empty ( $config['token'] ) ? 'a token or increase cache time.' : 'a new token.' );
+			exit();
+		}
+		update_option( $apiPath, $file );
+		update_option( $apiPath . 'time', time() );
 	}
 
 	public function register_widget_styles() {

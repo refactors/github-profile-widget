@@ -4,7 +4,8 @@ require_once 'EventType.php';
 foreach ($feed as $entry) :
     $eventType = new EventType($entry);
     ?>
-    <div class="github-feed-entry">
+	<?php echo $eventType->getOcticon(); ?>
+	<div class="github-feed-entry ">
         <small style="color: #666">
             <time datetime="<?php echo $entry->created_at ?>"><?php echo $eventType->getTimeAgo() ?> ago</time>
         </small>

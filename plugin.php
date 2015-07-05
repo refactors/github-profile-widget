@@ -19,7 +19,7 @@ require_once( 'lib/htmlcompressor.php' );
 class GitHub_Profile extends WP_Widget {
 
 	const API_PATH = "https://api.github.com";
-	const c = "v3";
+	const API_VERSION = "v3";
 
 	protected $widget_slug = 'github-profile';
 	protected $checkboxes = array(
@@ -41,7 +41,7 @@ class GitHub_Profile extends WP_Widget {
 			)
 		);
 
-		add_action( 'flush_cache', 'flush_github_api_content', 1, 1 );
+		add_action( 'flush_cache', array( $this, 'flush_github_api_content' ), 1, 1 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_widget_styles' ) );
 	}
@@ -68,21 +68,36 @@ class GitHub_Profile extends WP_Widget {
 
 	public function update( $new_instance, $old_instance ) {
 		$new_instance['first_time'] = false;
+		$urls = [ preg_replace( '/\s+/', '', self::API_PATH . '/users/' . $new_instance['username'] ) ];
+		$optionsToUrls = array(
+			'repositories'  => 'repos',
+			'organizations' => 'orgs',
+			'feed'          => 'events'
+		);
+
+		foreach ( $optionsToUrls as $option => $url ) {
+			if ( $this->is_checked( $new_instance, $option ) ) {
+				array_push( $urls, $urls[0] . "/" . $url );
+			}
+		}
+
+		update_option( 'github_api_pending_urls', $urls );
+		wp_schedule_single_event( time(), 'flush_cache', array( $new_instance ) );
 
 		return $new_instance;
 	}
 
-	public function widget( $args, $config ) {
-		update_option( 'github_api_pending_urls', array() ); // remove
+	public function is_checked( $conf, $name ) {
+		return isset( $conf[ $name ] ) && $conf[ $name ] == 'on';
+	}
 
+	public function widget( $args, $config ) {
 		if ( empty( $config['username'] ) ) {
 			return;
 		}
 
-		$url = self::API_PATH . '/users/' . $config['username'];
-		$profile             = $this->get_github_api_content( $url, $config );
-
-		//$this->flush_github_api_content($config);
+		$url     = self::API_PATH . '/users/' . $config['username'];
+		$profile = $this->get_github_api_content( $url, $config );
 
 		$profile->created_at = new DateTime( $profile->created_at );
 		$profile->events_url = str_replace( '{/privacy}', '', $profile->events_url );
@@ -107,30 +122,8 @@ class GitHub_Profile extends WP_Widget {
 		wp_schedule_single_event( time() + ( $config['cache'] * 60 ), 'flush_cache', array( $config ) );
 	}
 
-	private function get_github_api_content( $apiPath, $config ) {
-		$file      = get_option( $apiPath ); // $apiPath is auto sanitized
-		$timestamp = get_option( $apiPath . 'time' );
-
-		if ( ! $file || time() - $timestamp >= $config['cache'] * 60 ) {
-			$this->add_pending_github_check_url( $apiPath );
-		}
-
-		return json_decode( $file );
-	}
-
-	private function add_pending_github_check_url( $url ) {
-		$urls = get_option( 'github_api_pending_urls' );
-
-		if ( ! $urls ) {
-			$urls = array();
-		}
-
-		array_push( $urls, $url );
-		update_option( 'github_api_pending_urls', $urls );
-	}
-
-	public function is_checked( $conf, $name ) {
-		return isset( $conf[ $name ] ) && $conf[ $name ] == 'on';
+	private function get_github_api_content( $apiPath ) {
+		return json_decode( get_option( $apiPath ) );
 	}
 
 	public function flush_github_api_content( $config ) {
@@ -155,8 +148,6 @@ class GitHub_Profile extends WP_Widget {
 			update_option( $url, $file );
 			update_option( $url . 'time', time() );
 		}
-
-		update_option( 'github_api_pending_urls', array() );
 	}
 
 	public function register_widget_styles() {

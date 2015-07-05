@@ -19,6 +19,7 @@ require_once( 'lib/htmlcompressor.php' );
 class GitHub_Profile extends WP_Widget {
 
 	const API_PATH = "https://api.github.com";
+	const c = "v3";
 
 	protected $widget_slug = 'github-profile';
 	protected $checkboxes = array(
@@ -140,7 +141,7 @@ class GitHub_Profile extends WP_Widget {
 				'http' => array(
 					'method' => "GET",
 					'header' =>
-						"Accept: application/vnd.github.v3+json\r\n" .
+						"Accept: application/vnd.github." . self::API_VERSION . "v3+json\r\n" .
 						"User-Agent: {$config['username']}\r\n" .
 						( empty( $config['token'] ) ? '' : "Authorization: token {$config['token']}\r\n" )
 				)

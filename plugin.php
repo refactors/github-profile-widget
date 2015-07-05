@@ -40,8 +40,6 @@ class GitHub_Profile extends WP_Widget {
 				$this->widget_slug
 			)
 		);
-
-		add_action( 'flush_cache', array( $this, 'flush_github_api_content' ), 1, 1 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_widget_styles' ) );
 	}
@@ -68,27 +66,8 @@ class GitHub_Profile extends WP_Widget {
 
 	public function update( $new_instance, $old_instance ) {
 		$new_instance['first_time'] = false;
-		$urls = [ preg_replace( '/\s+/', '', self::API_PATH . '/users/' . $new_instance['username'] ) ];
-		$optionsToUrls = array(
-			'repositories'  => 'repos',
-			'organizations' => 'orgs',
-			'feed'          => 'events'
-		);
-
-		foreach ( $optionsToUrls as $option => $url ) {
-			if ( $this->is_checked( $new_instance, $option ) ) {
-				array_push( $urls, $urls[0] . "/" . $url );
-			}
-		}
-
-		update_option( 'github_api_pending_urls', $urls );
-		wp_schedule_single_event( time(), 'flush_cache', array( $new_instance ) );
 
 		return $new_instance;
-	}
-
-	public function is_checked( $conf, $name ) {
-		return isset( $conf[ $name ] ) && $conf[ $name ] == 'on';
 	}
 
 	public function widget( $args, $config ) {
@@ -98,7 +77,6 @@ class GitHub_Profile extends WP_Widget {
 
 		$url     = self::API_PATH . '/users/' . $config['username'];
 		$profile = $this->get_github_api_content( $url, $config );
-
 		$profile->created_at = new DateTime( $profile->created_at );
 		$profile->events_url = str_replace( '{/privacy}', '', $profile->events_url );
 
@@ -118,36 +96,40 @@ class GitHub_Profile extends WP_Widget {
 		ob_start( "refactors_HTMLCompressor" );
 		require 'views/widget.php';
 		ob_end_flush();
-
-		wp_schedule_single_event( time() + ( $config['cache'] * 60 ), 'flush_cache', array( $config ) );
 	}
 
-	private function get_github_api_content( $apiPath ) {
-		return json_decode( get_option( $apiPath ) );
-	}
+	private function get_github_api_content( $apiPath, $config ) {
+		$file         = get_option( $apiPath ); // $apiPath is auto sanitized
+		$timestamp    = get_option( $apiPath . 'time' );
+		$fileCacheAge = time() - $timestamp + rand( - 4, 4 ); // 9 random results prevents simultaneous expiring
 
-	public function flush_github_api_content( $config ) {
-		$urls = get_option( 'github_api_pending_urls' );
-
-		foreach ( $urls as $url ) {
+		// TODO async update!!! return what's (if) available
+		if ( ! $file || ! $timestamp || $fileCacheAge > $config['cache'] * 60 ) {
 			$context = stream_context_create( array(
 				'http' => array(
 					'method' => "GET",
 					'header' =>
-						"Accept: application/vnd.github." . self::API_VERSION . "v3+json\r\n" .
+						"Accept: application/vnd.github." . self::API_VERSION . "+json\r\n" .
 						"User-Agent: {$config['username']}\r\n" .
 						( empty( $config['token'] ) ? '' : "Authorization: token {$config['token']}\r\n" )
 				)
 			) );
-			$file    = file_get_contents( $url, false, $context );
+			$file    = file_get_contents( $apiPath, false, $context );
 			if ( ! $file ) {
 				echo 'Error with API; please provide '
 				     . ( empty ( $config['token'] ) ? 'a token or increase cache time.' : 'a new token.' );
-				exit();
+
+				return "";
 			}
-			update_option( $url, $file );
-			update_option( $url . 'time', time() );
+			update_option( $apiPath, $file );
+			update_option( $apiPath . 'time', time() );
 		}
+
+		return json_decode( $file );
+	}
+
+	public function is_checked( $conf, $name ) {
+		return isset( $conf[ $name ] ) && $conf[ $name ] == 'on';
 	}
 
 	public function register_widget_styles() {

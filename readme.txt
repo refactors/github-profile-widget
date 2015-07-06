@@ -21,6 +21,8 @@ This is a very simple plugin which gives you a widget to show your GitHub profil
 + Repositories and gists;
 + The organizations where you are included.
 
+**Advice: we are not affiliated with GitHub.**
+
 == Installation ==
 
 1. Install "GitHub Profile Widget" via the WordPress.org plugin directory or uploading the files to your server.
@@ -30,7 +32,7 @@ This is a very simple plugin which gives you a widget to show your GitHub profil
 
 == Screenshots ==
 
-1. Description 1
-2. Description 2
-3. Description 3
-4. Description 4
+1. The Widget with all options enabled
+2. The repositories list
+3. Widget options
+4. Widget advanced options

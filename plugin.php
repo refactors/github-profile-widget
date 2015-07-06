@@ -3,7 +3,7 @@
 /**
  * Plugin Name: GitHub Profile Widget
  * Description: This is a plugin that shows your GitHub profile with a simple widget.
- * Version: 0.9.9
+ * Version: 1.0.0
  * Author: Henrique Dias and Luís Soares (Refactors)
  * Author URI: https://github.com/refactors
  * Network: true

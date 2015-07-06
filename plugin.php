@@ -3,7 +3,7 @@
 /**
  * Plugin Name: GitHub Profile Widget
  * Description: This is a plugin that shows your GitHub profile with a simple widget.
- * Version: 0.0.9
+ * Version: 0.9.9
  * Author: Henrique Dias and Luís Soares (Refactors)
  * Author URI: https://github.com/refactors
  * Network: true
@@ -27,7 +27,7 @@ class GitHub_Profile extends WP_Widget {
 		"meta_info",
 		"followers_and_following",
 		"repositories",
-		"gists",
+		/*"gists", */
 		"organizations"/* ,
 		"feed" */
 	);

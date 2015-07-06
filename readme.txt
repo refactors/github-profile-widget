@@ -11,7 +11,15 @@ A widget to show a small version of your GitHub personal profile (or organizatio
 
 == Description ==
 
-A longer description.
+This is a very simple plugin which gives you a widget to show your GitHub profile or organization in your blog. It's very easy to setup. You just have to put your username (or organization's slug) and select the things you want to show.
+
+**Features include:**
+
++ Basic information (username, name);
++ Company, local, email, website and when you joined to GitHub;
++ Followers and following numbers;
++ Repositories and gists;
++ The organizations where you are included.
 
 == Installation ==
 

@@ -11,6 +11,7 @@
 	"ignore": [
 		".git",
         ".gitignore",
+        ".idea",
 		"wpsync.json"
 	]
 }

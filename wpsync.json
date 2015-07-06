@@ -1,0 +1,16 @@
+{
+	"increase": "build",
+	"plugin": {
+		"file": "plugin.php",
+		"svn": "http://plugins.svn.wordpress.org/github-profile-widget/"
+	},
+	"dependencies": {
+		"bower": false,
+		"composer": false
+	},
+	"ignore": [
+		".git",
+        ".gitignore",
+		"wpsync.json"
+	]
+}

@@ -11,7 +11,7 @@
 	"ignore": [
 		".git",
         ".gitignore",
-      "_assets",
+        "_assets",
         ".idea",
 		"wpsync.json"
 	]

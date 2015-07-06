@@ -50,7 +50,7 @@ class GitHub_Profile extends WP_Widget {
 			"meta_info"           => "on",
 			"followers_following" => "on",
 			"organizations"       => "on",
-			"cache"               => "5"
+			"cache"               => "50"
 		);
 
 		$config = ! isset( $config['first_time'] ) ? $default : $config;

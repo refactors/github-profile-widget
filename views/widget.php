@@ -19,6 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 ?>
+<?php echo $before_widget ?>
 <aside class="widget">
 
 	<?php if ( isset( $config["title"] ) ) : ?>
@@ -156,3 +157,4 @@
 		</div>
 	</div>
 </aside>
+<?php echo $after_widget ?>

@@ -6,7 +6,6 @@
  * Version: 1.0.1
  * Author: Henrique Dias and Luís Soares (Refactors)
  * Author URI: https://github.com/refactors
- * Network: true
  * License: GPL2 or later
  */
 // prevent direct file access

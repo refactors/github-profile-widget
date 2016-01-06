@@ -20,7 +20,7 @@
  */
 ?>
 <?php echo $before_widget ?>
-<aside class="widget">
+<aside>
 
 	<?php if ( isset( $config["title"] ) ) : ?>
 		<?php echo $before_title . $config["title"] . $after_title; ?>

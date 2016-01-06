@@ -1,6 +1,6 @@
 <?php
 /* 
- * HackerRank Profile Widget for WordPress
+ * Github Profile Widget for WordPress
  *
  *     Copyright (C) 2015 Henrique Dias <hacdias@gmail.com>
  *     Copyright (C) 2015 Luís Soares <lsoares@gmail.com>

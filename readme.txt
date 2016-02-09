@@ -1,5 +1,5 @@
 === GitHub Profile Widget ===
-Contributors: hacdias, lsoares13
+Contributors: hacdias, lsoares13, wonderqs
 Tags: github, profile, widget, programming, development, open source, organization, git
 Requires at least: 3.0.1
 Tested up to: 4.4.1
@@ -20,6 +20,10 @@ This is a very simple plugin which gives you a widget to show your GitHub profil
 + Followers and following numbers;
 + Repositories and gists;
 + The organizations where you are included.
+
+**Patch (for Chinese visitors):**
+
+Because Google's service is not avaliable in China, the Google Fonts CDN always works bad in China. So the previous version of this plugin is not work well for Chinese visitors. This patched function provide an option to use Chinese CDN (http://fonts.lug.ustc.edu.cn/) instead of Google CDN (http://fonts.googleapis.com). You can dicide use Chinese CDN or not by choose the options on the new-added submenu under "Settings".
 
 **Advice: we are not affiliated with GitHub.**
 

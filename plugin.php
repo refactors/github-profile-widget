@@ -138,7 +138,6 @@ class GitHub_Profile extends WP_Widget {
 	public function register_admin_scripts() {
 		wp_enqueue_script( $this->widget_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array( 'jquery' ) );
 	}
-
 }
 
 add_action( 'widgets_init', create_function( '', 'return register_widget("GitHub_Profile");' ) );

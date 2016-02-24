@@ -205,3 +205,8 @@
     font-size: 90%;
     margin-bottom: 0.1em;
 }
+
+.github-organizations a {
+    display: inline-block;
+    margin: 5px;
+}

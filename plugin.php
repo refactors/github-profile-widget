@@ -132,30 +132,13 @@ class GitHub_Profile extends WP_Widget {
 
 	public function register_widget_styles() {
 		wp_enqueue_style( $this->widget_slug . '-octicons', plugins_url( 'css/octicons/octicons.css', __FILE__ ) );
-		if(get_option('google_fonts')) {
-			wp_enqueue_style( $this->widget_slug . '-widget-styles', plugins_url( 'css/widget_chinese.css', __FILE__ ) );
-		}else {
-			wp_enqueue_style( $this->widget_slug . '-widget-styles', plugins_url( 'css/widget.css', __FILE__ ) );
-		}
+		wp_enqueue_style( $this->widget_slug . '-widget-styles', plugins_url( 'css/widget.css', __FILE__ ) );
 	}
 
 	public function register_admin_scripts() {
 		wp_enqueue_script( $this->widget_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array( 'jquery' ) );
 	}
 
-}
-
-function github_profile_menu() {
-	if (isset($_POST["action"]) && $_POST["action"] == "saveconfiguration") {
-		update_option('google_fonts', $_POST["google_fonts"]);
-		echo '<div class="updated"><p><strong>Setting Updated！</strong></p></div>';
-	}
-	$google_fonts = get_option("google_fonts");
-	require 'views/menu.php';
-}
-
-function register_menu() {
-	add_submenu_page( 'options-general.php', 'GitHub Profile Widget', 'GitHub Profile Widget', 'manage_options', 'github_profile', 'github_profile_menu' );
 }
 
 add_action( 'widgets_init', create_function( '', 'return register_widget("GitHub_Profile");' ) );

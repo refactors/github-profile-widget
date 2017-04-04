@@ -29,7 +29,7 @@ class GitHub_Profile extends WP_Widget {
 		/*"gists", */
 		"organizations",
 		/*"feed", */
-		"dark_themes"
+		"dark_theme"
 	);
 
 	public function __construct() {
@@ -51,7 +51,7 @@ class GitHub_Profile extends WP_Widget {
 			"followers_following" => "on",
 			"organizations"       => "on",
 			"cache"               => "50",
-			"dark_themes"         => "off"
+			"dark_theme"         => "off"
 		);
 
 		$config = ! isset( $config['first_time'] ) ? $default : $config;
@@ -142,12 +142,7 @@ class GitHub_Profile extends WP_Widget {
 	}
 
 	public function load_theme($config) {
-		if($this->is_checked($config,'dark_themes')){
-			wp_enqueue_style( $this->widget_slug . '-widget-styles', plugins_url( "css/dark_widget.css", __FILE__ ) );
-		}
-		else{
-			wp_enqueue_style( $this->widget_slug . '-widget-styles', plugins_url( "css/widget.css", __FILE__ ) );
-		}
+		wp_enqueue_style( $this->widget_slug . '-widget-styles', plugins_url( "css/widget.css", __FILE__ ) );
 	}
 }
 

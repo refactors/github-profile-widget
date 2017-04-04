@@ -27,8 +27,9 @@ class GitHub_Profile extends WP_Widget {
 		"followers_and_following",
 		"repositories",
 		/*"gists", */
-		"organizations"/* ,
-		"feed" */
+		"organizations",
+		/*"feed", */
+		"dark_themes"
 	);
 
 	public function __construct() {
@@ -49,7 +50,8 @@ class GitHub_Profile extends WP_Widget {
 			"meta_info"           => "on",
 			"followers_following" => "on",
 			"organizations"       => "on",
-			"cache"               => "50"
+			"cache"               => "50",
+			"dark_themes"         => "off"
 		);
 
 		$config = ! isset( $config['first_time'] ) ? $default : $config;
@@ -93,6 +95,7 @@ class GitHub_Profile extends WP_Widget {
 
 		extract( $args, EXTR_SKIP );
 		ob_start( "refactors_HTMLCompressor" );
+		$this->load_theme($config);
 		require 'views/widget.php';
 		ob_end_flush();
 	}
@@ -132,11 +135,19 @@ class GitHub_Profile extends WP_Widget {
 
 	public function register_widget_styles() {
 		wp_enqueue_style( $this->widget_slug . '-octicons', plugins_url( 'css/octicons/octicons.css', __FILE__ ) );
-		wp_enqueue_style( $this->widget_slug . '-widget-styles', plugins_url( 'css/widget.css', __FILE__ ) );
 	}
 
 	public function register_admin_scripts() {
 		wp_enqueue_script( $this->widget_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array( 'jquery' ) );
+	}
+
+	public function load_theme($config) {
+		if($this->is_checked($config,'dark_themes')){
+			wp_enqueue_style( $this->widget_slug . '-widget-styles', plugins_url( "css/dark_widget.css", __FILE__ ) );
+		}
+		else{
+			wp_enqueue_style( $this->widget_slug . '-widget-styles', plugins_url( "css/widget.css", __FILE__ ) );
+		}
 	}
 }
 

@@ -41,7 +41,7 @@ class GitHub_Profile extends WP_Widget {
 			)
 		);
 		add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_widget_styles') );
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_widget_styles' ) );
 	}
 
 	public function form( $config ) {
@@ -135,7 +135,6 @@ class GitHub_Profile extends WP_Widget {
 
 	public function register_widget_styles() {
 		wp_enqueue_style( $this->widget_slug . '-octicons', plugins_url( 'css/octicons/octicons.css', __FILE__ ) );
-
 	}
 
 	public function register_admin_scripts() {

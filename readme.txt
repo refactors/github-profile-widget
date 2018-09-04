@@ -1,5 +1,5 @@
 === GitHub Profile Widget ===
-Contributors: hacdias, lsoares13, wonderqs, Lee Yunseok
+Contributors: hacdias, lsoares13, wonderqs, lee-yunseok
 Tags: github, profile, widget, programming, development, open source, organization, git
 Requires at least: 3.0.1
 Tested up to: 4.9.8

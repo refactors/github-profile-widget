@@ -28,7 +28,7 @@
 
 	<div class="github-widget<?php if ( $this->is_checked( $config, 'dark_theme' ) ) : ?> dark<?php endif; ?>" id="<?php echo $this->id; ?>">
 
-		<header class="github-widget-header">
+		<div class="github-widget-header">
 			<img class="github-widget-company-logo" title="GitHub"
 			     src="https://assets-cdn.github.com/favicon.ico"/>
 
@@ -38,7 +38,7 @@
 					<?php echo $profile->login; ?> (<?php echo $profile->name; ?>)
 				</a>
 			</div>
-		</header>
+		</div>
 
 		<div class="github-widget-content">
 			<?php if ( $this->is_checked( $config, 'avatar_and_name' ) ) : ?>

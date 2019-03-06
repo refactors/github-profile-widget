@@ -30,7 +30,7 @@
 
 		<div class="github-widget-header">
 			<img class="github-widget-company-logo" title="GitHub"
-			     src="https://assets-cdn.github.com/favicon.ico"/>
+			     src="https://github.githubassets.com/favicon.ico"/>
 
 			<div class="github-widget-header-text">
 				<a class="github-widget-header-link" target="_blank"
